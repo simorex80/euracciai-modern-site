@@ -20,7 +20,15 @@
     <h2>Prodotti e partner indicati per questa divisione</h2>
     <div class="value-grid compact-list">
       <% division.products.forEach((item) => { %>
-        <div><h3><%= item %></h3></div>
+        <div>
+          <h3><%= typeof item === 'string' ? item : item.title %></h3>
+          <% if (typeof item !== 'string' && item.description) { %>
+            <p><%= item.description %></p>
+          <% } %>
+          <% if (typeof item !== 'string' && item.url) { %>
+            <p><a href="<%= item.url %>" target="_blank" rel="noopener noreferrer"><%= item.url %></a></p>
+          <% } %>
+        </div>
       <% }) %>
     </div>
   </section>
