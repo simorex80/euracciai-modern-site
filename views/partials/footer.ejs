@@ -38,6 +38,11 @@
   </div>
   <div class="footer-bottom">
     <span>© <%= new Date().getFullYear() %> <%= site.company %></span>
+    <div class="lang-switch footer-lang" aria-label="Language selector">
+      <a class="lang-link <%= locale === 'it' ? 'active' : '' %>" href="<%= url(localePaths.it) %>">IT</a>
+      <span>/</span>
+      <a class="lang-link <%= locale === 'en' ? 'active' : '' %>" href="<%= url(localePaths.en) %>">EN</a>
+    </div>
   </div>
 </footer>
 <script src="<%= asset('/js/main.js') %>"></script>

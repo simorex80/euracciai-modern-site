@@ -286,6 +286,10 @@ function render(locale = 'it', page, data = {}) {
   const pathKey = data.pathKey || page;
   const pathParams = data.pathParams || {};
   const currentPath = data.currentPath || pathFor(pathKey, pathParams);
+  const localePaths = {
+    it: buildPathFor('it')(pathKey, pathParams),
+    en: buildPathFor('en')(pathKey, pathParams)
+  };
 
   const selectedDivisions = localized.divisions[lang];
   let division = data.division;
@@ -306,6 +310,7 @@ function render(locale = 'it', page, data = {}) {
     url: (target) => makeRelative(currentPath, staticMode ? routeToStaticFilePath(target) : target),
     asset: (target) => makeRelative(currentPath, target),
     switchPath: buildPathFor(switchLocale)(pathKey, pathParams),
+    localePaths,
     ...data,
     division
   };

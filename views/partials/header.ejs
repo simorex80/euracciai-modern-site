@@ -13,5 +13,9 @@
     <a class="<%= page === 'partners' ? 'active' : '' %>" href="<%= url(pathFor('partners')) %>"><%= t.nav.partners %></a>
     <a class="<%= page === 'contatti' ? 'active' : '' %>" href="<%= url(pathFor('contatti')) %>"><%= t.nav.contatti %></a>
   </nav>
-  <a class="btn btn-ghost header-cta" href="<%= url(switchPath) %>"><%= t.switchLabel %></a>
+  <div class="lang-switch" aria-label="Language selector">
+    <a class="lang-link <%= locale === 'it' ? 'active' : '' %>" href="<%= url(localePaths.it) %>">IT</a>
+    <span>/</span>
+    <a class="lang-link <%= locale === 'en' ? 'active' : '' %>" href="<%= url(localePaths.en) %>">EN</a>
+  </div>
 </header>
