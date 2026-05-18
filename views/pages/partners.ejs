@@ -1,16 +1,16 @@
 <%- include('../partials/head') %><%- include('../partials/header') %>
 <main class="page">
   <section class="page-hero">
-    <span class="eyebrow">Partners</span>
-    <h1>Partners</h1>
-    <p>Collaboriamo con aziende internazionali specializzate in materiali avanzati, componenti tecnici e macchine utensili.</p>
+    <span class="eyebrow"><%= t.pages.partnersEyebrow %></span>
+    <h1><%= t.pages.partnersTitle %></h1>
+    <p><%= t.pages.partnersSubtitle %></p>
   </section>
   <section class="section">
     <div class="value-grid compact-list">
       <% partners.forEach((partner) => { %>
         <article>
           <h3><%= partner.name %> - <%= partner.country %></h3>
-          <p><strong>Divisione:</strong> <%= partner.division %></p>
+          <p><strong><%= t.common.division %>:</strong> <%= partner.division %></p>
           <p><%= partner.description %></p>
           <% if (partner.url) { %>
             <p><a href="<%= partner.url %>" target="_blank" rel="noopener noreferrer"><%= partner.url %></a></p>

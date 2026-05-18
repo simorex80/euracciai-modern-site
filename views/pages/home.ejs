@@ -7,24 +7,24 @@
     <div class="hero-content reveal visible">
       <span class="eyebrow">Euracciai</span>
       <h1><span>Since 1958</span></h1>
-      <p>Utensili speciali, materiali avanzati, macchine utensili che operano con processi innovativi e componenti speciali per diversi settori industriali.</p>
+      <p><%= t.home.intro %></p>
       <div class="actions">
-        <a class="btn btn-primary" href="/divisioni">Prodotti</a>
-        <a class="btn btn-ghost" href="/azienda">Chi siamo</a>
+        <a class="btn btn-primary" href="<%= pathFor('divisioni') %>"><%= t.home.ctaProducts %></a>
+        <a class="btn btn-ghost" href="<%= pathFor('azienda') %>"><%= t.home.ctaCompany %></a>
       </div>
       <div class="hero-badges">
-        <div><strong>1958</strong><small>Inizio attività</small></div>
-        <div><strong>3</strong><small>Divisioni</small></div>
+        <div><strong>1958</strong><small><%= t.home.startActivity %></small></div>
+        <div><strong>3</strong><small><%= t.home.divisionsCount %></small></div>
       </div>
     </div>
   </section>
 
   <section class="section split reveal">
     <div>
-      <span class="eyebrow">Divisioni</span>
-      <h2>MDU, MACSI, DIVMAC</h2>
+      <span class="eyebrow"><%= t.home.divisionsTitle %></span>
+      <h2><%= t.home.divisionsHeadline %></h2>
     </div>
-    <p>L'attività richiede un elevato livello di competenze tecniche che offriamo ai nostri clienti per trovare la soluzione più adatta per migliorare i loro cicli di produzione, la qualità dei loro prodotti e la loro competitività.</p>
+    <p><%= t.home.divisionsLead %></p>
   </section>
 
   <section class="cards-grid section-tight">
@@ -35,15 +35,15 @@
           <h3 class="accent-<%= division.color %>"><%= division.name %></h3>
           <strong><%= division.subtitle %></strong>
           <p><%= division.description %></p>
-          <a href="/divisioni/<%= division.id %>">Apri <%= division.name %> →</a>
+          <a href="<%= pathFor('divisioni', { id: division.id }) %>"><%= t.home.cardOpen %> <%= division.name %> →</a>
         </div>
       </article>
     <% }) %>
   </section>
 
   <section class="section reveal" id="azienda">
-    <span class="eyebrow">Chi siamo</span>
-    <h2>L'azienda ha iniziato la sua attività nel 1958.</h2>
+    <span class="eyebrow"><%= t.home.aboutTitle %></span>
+    <h2><%= t.home.aboutHeadline %></h2>
     <% company.paragraphs.forEach((paragraph) => { %>
       <p class="section-lead"><%= paragraph %></p>
     <% }) %>

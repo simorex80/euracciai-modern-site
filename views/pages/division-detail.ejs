@@ -1,7 +1,7 @@
 <%- include('../partials/head') %><%- include('../partials/header') %>
 <main class="page">
   <section class="page-hero">
-    <span class="eyebrow">Divisione</span>
+    <span class="eyebrow"><%= t.pages.divisionEyebrow %></span>
     <h1 class="accent-<%= division.color %>"><%= division.title %></h1>
     <p><%= division.subtitle %></p>
   </section>
@@ -12,12 +12,12 @@
       <% division.paragraphs.forEach((paragraph) => { %>
         <p><%= paragraph %></p>
       <% }) %>
-      <a class="btn btn-primary" href="/contatti">Contatti</a>
+      <a class="btn btn-primary" href="<%= pathFor('contatti') %>"><%= t.common.contacts %></a>
     </div>
   </section>
   <section class="section value-section">
-    <span class="eyebrow">Contenuti</span>
-    <h2>Prodotti e partner indicati per questa divisione</h2>
+    <span class="eyebrow"><%= t.pages.contentEyebrow %></span>
+    <h2><%= t.pages.contentTitle %></h2>
     <div class="value-grid compact-list">
       <% division.products.forEach((item) => { %>
         <div>

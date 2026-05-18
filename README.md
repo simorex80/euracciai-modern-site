@@ -66,15 +66,25 @@ euracciai-modern-site/
 
 ## Rotte Disponibili
 
-- `GET /` - Home
-- `GET /azienda` - Pagina azienda
-- `GET /divisioni` - Elenco divisioni
-- `GET /divisioni/:id` - Dettaglio divisione (`mdu`, `macsi`, `divmac`)
-- `GET /applicazioni` - Applicazioni
-- `GET /partners` - Partners
-- `GET /contatti` - Contatti
-- `POST /contatti` - Render pagina contatti con stato invio (`sent: true`)
-- Fallback 404 su qualsiasi rotta non gestita
+- `GET /` - Redirect a `/it`
+- Italiano:
+- `GET /it`
+- `GET /it/azienda`
+- `GET /it/divisioni`
+- `GET /it/divisioni/:id`
+- `GET /it/applicazioni`
+- `GET /it/partners`
+- `GET /it/contatti`
+- `POST /it/contatti`
+- Inglese:
+- `GET /en`
+- `GET /en/company`
+- `GET /en/divisions`
+- `GET /en/divisions/:id`
+- `GET /en/applications`
+- `GET /en/partners`
+- `GET /en/contact`
+- `POST /en/contact`
 
 ## Configurazione
 
@@ -117,9 +127,10 @@ npm run build:static
 
 Viene generata la cartella `dist/` con:
 
-- HTML prerenderizzato per tutte le rotte
-- `dist/public` con CSS, JS e immagini
-- `dist/404.html` per fallback not found
+- HTML prerenderizzato per tutte le rotte IT/EN
+- `dist/it/...` e `dist/en/...`
+- asset statici in `dist/css`, `dist/js`, `dist/img`
+- `dist/index.html` (redirect) e `dist/404.html`
 
 Pubblica direttamente il contenuto di `dist/`.
 

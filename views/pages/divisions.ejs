@@ -1,9 +1,9 @@
 <%- include('../partials/head') %><%- include('../partials/header') %>
 <main class="page">
   <section class="page-hero">
-    <span class="eyebrow">Prodotti</span>
-    <h1>Divisioni</h1>
-    <p>MDU, MACSI e DIVMAC</p>
+    <span class="eyebrow"><%= t.pages.productsEyebrow %></span>
+    <h1><%= t.pages.productsTitle %></h1>
+    <p><%= t.pages.productsSubtitle %></p>
   </section>
   <section class="cards-grid section">
     <% divisions.forEach((division) => { %>
@@ -13,7 +13,7 @@
           <h3 class="accent-<%= division.color %>"><%= division.name %></h3>
           <strong><%= division.subtitle %></strong>
           <p><%= division.description %></p>
-          <a href="/divisioni/<%= division.id %>">Approfondisci →</a>
+          <a href="<%= pathFor('divisioni', { id: division.id }) %>"><%= t.common.detail %></a>
         </div>
       </article>
     <% }) %>

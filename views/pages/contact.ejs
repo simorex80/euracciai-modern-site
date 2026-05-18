@@ -1,23 +1,23 @@
 <%- include('../partials/head') %><%- include('../partials/header') %>
 <main class="page">
   <section class="page-hero">
-    <span class="eyebrow">Contatti</span>
-    <h1>Contatti</h1>
+    <span class="eyebrow"><%= t.common.contacts %></span>
+    <h1><%= t.common.contacts %></h1>
   </section>
   <section class="section contact-layout">
     <div class="contact-card">
-      <h2>Contatti</h2>
-      <p><strong>Telefono</strong><br><%= site.phoneExtended %></p>
-      <p><strong>Fax</strong><br><%= site.fax %></p>
-      <p><strong>Email</strong><br><%= site.email %></p>
-      <p><strong>Sede</strong><br><%= site.address %></p>
+      <h2><%= t.common.contacts %></h2>
+      <p><strong><%= t.common.phone %></strong><br><%= site.phoneExtended %></p>
+      <p><strong><%= t.common.fax %></strong><br><%= site.fax %></p>
+      <p><strong><%= t.common.email %></strong><br><%= site.email %></p>
+      <p><strong><%= t.common.office %></strong><br><%= site.address %></p>
       <hr>
       <% divisions.forEach((division) => { %>
-        <p><strong>DIVISIONE <%= division.name === 'DIVMAC' ? 'DIVMAC' : division.name %></strong><br><%= division.subtitle %><br><%= division.email %></p>
+        <p><strong><%= t.common.division.toUpperCase() %> <%= division.name === 'DIVMAC' ? 'DIVMAC' : division.name %></strong><br><%= division.subtitle %><br><%= division.email %></p>
       <% }) %>
     </div>
     <div class="contact-card">
-      <h2>Come raggiungerci</h2>
+      <h2><%= t.common.directions %></h2>
       <p><%= site.directions %></p>
     </div>
   </section>

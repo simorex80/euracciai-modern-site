@@ -1,35 +1,35 @@
 <footer class="site-footer">
   <div class="footer-cta">
     <div>
-      <span class="eyebrow">Contatti</span>
+      <span class="eyebrow"><%= t.common.contacts %></span>
       <h2><%= site.company %></h2>
     </div>
-    <p><%= site.address %><br>Tel <%= site.phone %> - Fax <%= site.fax %><br><%= site.email %></p>
-    <a class="btn btn-primary" href="/contatti">Contatti</a>
+    <p><%= site.address %><br><%= t.common.phone %> <%= site.phone %> - <%= t.common.fax %> <%= site.fax %><br><%= site.email %></p>
+    <a class="btn btn-primary" href="<%= pathFor('contatti') %>"><%= t.common.contacts %></a>
   </div>
 
   <div class="footer-grid">
     <div>
-      <a class="brand footer-brand" href="/">
+      <a class="brand footer-brand" href="<%= pathFor('home') %>">
         <span class="brand-mark">E</span>
         <span><strong><%= site.company %></strong><small><%= site.payoff %></small></span>
       </a>
     </div>
     <div>
-      <h3>Menu</h3>
-      <a href="/azienda">Chi siamo</a>
-      <a href="/divisioni">Prodotti</a>
-      <a href="/partners">Partners</a>
-      <a href="/contatti">Contatti</a>
+      <h3><%= t.common.menu %></h3>
+      <a href="<%= pathFor('azienda') %>"><%= t.nav.azienda %></a>
+      <a href="<%= pathFor('divisioni') %>"><%= t.nav.divisioni %></a>
+      <a href="<%= pathFor('partners') %>"><%= t.nav.partners %></a>
+      <a href="<%= pathFor('contatti') %>"><%= t.nav.contatti %></a>
     </div>
     <div>
-      <h3>Divisioni</h3>
+      <h3><%= t.home.divisionsTitle %></h3>
       <% divisions.forEach((division) => { %>
-        <a href="/divisioni/<%= division.id %>"><%= division.name %> — <%= division.subtitle %></a>
+        <a href="<%= pathFor('divisioni', { id: division.id }) %>"><%= division.name %> — <%= division.subtitle %></a>
       <% }) %>
     </div>
     <div>
-      <h3>Dati societari</h3>
+      <h3><%= t.common.companyData %></h3>
       <p><%= site.chamber %></p>
       <p><%= site.capital %></p>
       <p><%= site.registry %></p>
