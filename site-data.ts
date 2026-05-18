@@ -104,7 +104,7 @@ const localized = {
   company: {
     it: {
       paragraphs: [
-        "L'azienda ha iniziato la sua attività nel 1958.Oggi la terza generazione lavora attivamente in azienda.",
+        "L'azienda ha iniziato la sua attività nel 1958. Oggi la terza generazione lavora attivamente in azienda.",
         'Ci occupiamo di utensili speciali, materiali avanzati, macchine utensili che operano con processi innovativi, e componenti speciali per diversi settori industriali.',
         "L'attività richiede un elevato livello di competenze tecniche che offriamo ai nostri clienti per trovare la soluzione più adatta per migliorare i loro cicli di produzione, la qualità dei loro prodotti e la loro competitività."
       ]
@@ -124,7 +124,7 @@ const localized = {
         description: 'EURACCIAI opera nel campo degli utensili da taglio e parti di usura/componenti in carburo di tungsteno da più di cinquanta anni.',
         paragraphs: [
           "Forniamo ad aziende in Italia, in Europa e nel mondo materiali e utensili per i processi di produzione più impegnativi per la asportazione di truciolo, lo stampaggio, la scordonatura di tubi, la marcatura di tubi e di componenti meccanici, la saldatura a resistenza, la sabbiatura con materiali abrasivi, e per le applicazioni che richiedono resistenza all'usura e alle sollecitazioni meccaniche, bassi attriti e elevate durezze o elevata conduttività.",
-          "La nostra esperienza e la nostra approfondita conoscenza tecnica ci permette di fornire l'utensile, il componente o il materiale più adatto a raggiungere gli obiettivi in termini di qualità, costo e produttività.",
+          "La nostra esperienza e la nostra approfondita conoscenza tecnica ci permettono di fornire l'utensile, il componente o il materiale più adatto a raggiungere gli obiettivi in termini di qualità, costo e produttività.",
           'Euracciai dispone inoltre di materiali a magazzino e di soluzioni su disegno per forniture rapide e progetti personalizzati, con attenzione a continuità produttiva e tracciabilità.'
         ],
         products: [
@@ -157,9 +157,9 @@ const localized = {
       },
       {
         id: 'divmac', name: 'DIVMAC', title: 'Divisione Macchine', subtitle: 'Macchine utensili', color: 'orange', email: 'divmac@euracciai.it', image: '/img/division-divmac.png',
-        description: 'La conoscenza approfondita dei processi tecnologici ci permette di analizzare le esigenze tecniche e di produzione e quindi di proporre le migliori soluzioni in relazione alle caratteristiche del componente da produrre, e alle esigenze di flessibilità e produttività richieste per il progetto.',
+        description: 'La conoscenza approfondita dei processi tecnologici ci permette di analizzare le esigenze tecniche e di produzione e quindi di proporre le migliori soluzioni in relazione alle caratteristiche del componente da produrre e alle esigenze di flessibilità e produttività richieste per il progetto.',
         paragraphs: [
-          'La conoscenza approfondita dei processi tecnologici ci permette di analizzare esigenze tecniche e produttive e proporre soluzioni mirate in base al componente da realizzare.',
+          'La conoscenza approfondita dei processi tecnologici ci consente di analizzare esigenze tecniche e produttive e proporre soluzioni mirate in base al componente da realizzare.',
           "L'obiettivo è bilanciare flessibilità, produttività e qualità del processo, con configurazioni adatte sia a linee automatiche sia a contesti ad alta variabilità."
         ],
         products: [
