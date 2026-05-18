@@ -43,7 +43,7 @@ const divisions = [
     subtitle: 'Metallo duro - utensili - elettrodi - ugelli',
     color: 'blue',
     email: 'mdu@euracciai.it',
-    image: '/img/division-mdu.svg',
+    image: '/img/division-mdu.png',
     description: 'EURACCIAI opera nel campo degli utensili da taglio e parti di usura/componenti in carburo di tungsteno da più di cinquanta anni.',
     paragraphs: [
       'Forniamo ad aziende in Italia, in Europa e nel mondo materiali e utensili per i processi di produzione più impegnativi per la asportazione di truciolo, lo stampaggio, la scordonatura di tubi, la marcatura di tubi e di componenti meccanici, la saldatura a resistenza, la sabbiatura con materiali abrasivi, e per le applicazioni che richiedono resistenza all\'usura e alle sollecitazioni meccaniche, bassi attriti e elevate durezze o elevata conduttività.',
@@ -100,7 +100,7 @@ const divisions = [
     subtitle: 'Materiali e componenti speciali per impianti',
     color: 'green',
     email: 'macsi@euracciai.it',
-    image: '/img/division-macsi.svg',
+    image: '/img/division-macsi.png',
     description: 'La divisione è specializzata in materiali avanzati per applicazioni industriali, come ceramiche tecniche, leghe resistenti alla corrosione e alle alte temperature, materiali antiusura e componenti speciali per impianti.',
     paragraphs: [
       'Le competenze tecniche relative alla conoscenza delle applicazioni, dei materiali e dei componenti, rendono EURACCIAI un ottimo partner per sviluppare insieme ai nostri clienti le soluzioni più appropriate.',
@@ -140,7 +140,7 @@ const divisions = [
     subtitle: 'Macchine utensili',
     color: 'orange',
     email: 'divmac@euracciai.it',
-    image: '/img/division-divmac.svg',
+    image: '/img/division-divmac.png',
     description: 'La conoscenza approfondita dei processi tecnologici ci permette di analizzare le esigenze tecniche e di produzione e quindi di proporre le migliori soluzioni in relazione alle caratteristiche del componente da produrre, e alle esigenze di flessibilità e produttività richieste per il progetto.',
     paragraphs: [
       'La conoscenza approfondita dei processi tecnologici ci permette di analizzare esigenze tecniche e produttive e proporre soluzioni mirate in base al componente da realizzare.',
@@ -277,3 +277,4 @@ app.use((req, res) => res.status(404).render('pages/404', render('404')));
 app.listen(PORT, () => {
   console.log(`EURACCIAI site running on http://localhost:${PORT}`);
 });
+
