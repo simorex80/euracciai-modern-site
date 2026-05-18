@@ -1,0 +1,17 @@
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Home">
+    <span class="brand-mark">E</span>
+    <span>
+      <strong><%= site.company %></strong>
+      <small><%= site.payoff %></small>
+    </span>
+  </a>
+  <nav class="main-nav" aria-label="Navigazione principale">
+    <a class="<%= page === 'azienda' ? 'active' : '' %>" href="/azienda">Chi siamo</a>
+    <a class="<%= page === 'divisioni' ? 'active' : '' %>" href="/divisioni">Prodotti</a>
+    <a class="<%= page === 'applicazioni' ? 'active' : '' %>" href="/applicazioni">Applicazioni</a>
+    <a class="<%= page === 'partners' ? 'active' : '' %>" href="/partners">Partners</a>
+    <a class="<%= page === 'contatti' ? 'active' : '' %>" href="/contatti">Contatti</a>
+  </nav>
+  <a class="btn btn-primary header-cta" href="/contatti">Contatti</a>
+</header>

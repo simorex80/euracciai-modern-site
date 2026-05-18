@@ -1,0 +1,28 @@
+<%- include('../partials/head') %><%- include('../partials/header') %>
+<main class="page">
+  <section class="page-hero">
+    <span class="eyebrow">Divisione</span>
+    <h1 class="accent-<%= division.color %>"><%= division.title %></h1>
+    <p><%= division.subtitle %></p>
+  </section>
+  <section class="section split">
+    <img class="detail-img" src="<%= division.image %>" alt="<%= division.title %>">
+    <div>
+      <h2><%= division.description %></h2>
+      <% division.paragraphs.forEach((paragraph) => { %>
+        <p><%= paragraph %></p>
+      <% }) %>
+      <a class="btn btn-primary" href="/contatti">Contatti</a>
+    </div>
+  </section>
+  <section class="section value-section">
+    <span class="eyebrow">Contenuti</span>
+    <h2>Prodotti e partner indicati per questa divisione</h2>
+    <div class="value-grid compact-list">
+      <% division.products.forEach((item) => { %>
+        <div><h3><%= item %></h3></div>
+      <% }) %>
+    </div>
+  </section>
+</main>
+<%- include('../partials/footer') %>

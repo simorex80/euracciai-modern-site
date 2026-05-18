@@ -1,0 +1,16 @@
+<%- include('../partials/head') %><%- include('../partials/header') %>
+<main class="page">
+  <section class="page-hero">
+    <span class="eyebrow">Applicazioni</span>
+    <h1>Processi e applicazioni</h1>
+    <p>Applicazioni indicate nella divisione MDU.</p>
+  </section>
+  <section class="section">
+    <div class="sector-grid large">
+      <% applications.forEach((item) => { %>
+        <div class="sector-card"><span><%= item %></span></div>
+      <% }) %>
+    </div>
+  </section>
+</main>
+<%- include('../partials/footer') %>

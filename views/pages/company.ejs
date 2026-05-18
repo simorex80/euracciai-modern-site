@@ -1,0 +1,14 @@
+<%- include('../partials/head') %><%- include('../partials/header') %>
+<main class="page">
+  <section class="page-hero">
+    <span class="eyebrow">Chi siamo</span>
+    <h1><%= site.company %></h1>
+    <p><%= site.payoff %></p>
+  </section>
+  <section class="section text-page">
+    <% company.paragraphs.forEach((paragraph) => { %>
+      <p><%= paragraph %></p>
+    <% }) %>
+  </section>
+</main>
+<%- include('../partials/footer') %>

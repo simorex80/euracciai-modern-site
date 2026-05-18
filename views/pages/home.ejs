@@ -1,0 +1,53 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<main>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content reveal visible">
+      <span class="eyebrow">Euracciai</span>
+      <h1><span>Since 1958</span></h1>
+      <p>Utensili speciali, materiali avanzati, macchine utensili che operano con processi innovativi e componenti speciali per diversi settori industriali.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/divisioni">Prodotti</a>
+        <a class="btn btn-ghost" href="/azienda">Chi siamo</a>
+      </div>
+      <div class="hero-badges">
+        <div><strong>1958</strong><small>Inizio attività</small></div>
+        <div><strong>3</strong><small>Divisioni</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section split reveal">
+    <div>
+      <span class="eyebrow">Divisioni</span>
+      <h2>MDU, MACSI, DIVMAC.</h2>
+    </div>
+    <p>L'attività richiede un elevato livello di competenze tecniche che offriamo ai nostri clienti per trovare la soluzione più adatta per migliorare i loro cicli di produzione, la qualità dei loro prodotti e la loro competitività.</p>
+  </section>
+
+  <section class="cards-grid section-tight">
+    <% divisions.forEach((division) => { %>
+      <article class="division-card reveal">
+        <img src="<%= division.image %>" alt="<%= division.title %>">
+        <div class="card-body">
+          <h3 class="accent-<%= division.color %>"><%= division.name %></h3>
+          <strong><%= division.subtitle %></strong>
+          <p><%= division.description %></p>
+          <a href="/divisioni/<%= division.id %>">Apri <%= division.name %> →</a>
+        </div>
+      </article>
+    <% }) %>
+  </section>
+
+  <section class="section reveal" id="azienda">
+    <span class="eyebrow">Chi siamo</span>
+    <h2>L'azienda ha iniziato la sua attività nel 1958.</h2>
+    <% company.paragraphs.forEach((paragraph) => { %>
+      <p class="section-lead"><%= paragraph %></p>
+    <% }) %>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
