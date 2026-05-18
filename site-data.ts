@@ -248,7 +248,7 @@ const localized = {
 };
 
 function buildPathFor(locale) {
-  return (key, params = {}) => {
+  return (key, params: any = {}) => {
     const map = routeMap[locale] || routeMap.it;
     const slug = map[key];
     if (slug === undefined) return `/${locale}`;
@@ -278,7 +278,7 @@ function makeRelative(fromPath, toPath) {
   return rel || '.';
 }
 
-function render(locale = 'it', page, data = {}) {
+function render(locale = 'it', page: string, data: any = {}) {
   const lang = locale === 'en' ? 'en' : 'it';
   const pathFor = buildPathFor(lang);
   const staticMode = Boolean(data.staticMode);
@@ -316,4 +316,6 @@ function render(locale = 'it', page, data = {}) {
   };
 }
 
-module.exports = { routeMap, divisions: localized.divisions.it, render };
+const divisions = localized.divisions.it;
+
+export { routeMap, divisions, render };

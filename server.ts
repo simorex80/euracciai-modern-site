@@ -1,19 +1,20 @@
-const express = require('express');
-const helmet = require('helmet');
-const path = require('path');
-const { divisions, render, routeMap } = require('./site-data');
+import express from 'express';
+import helmet from 'helmet';
+import path from 'path';
+import { divisions, render, routeMap } from './site-data';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const ROOT = process.cwd();
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(ROOT, 'public')));
 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(ROOT, 'views'));
 
-function registerLocaleRoutes(locale) {
+function registerLocaleRoutes(locale: 'it' | 'en') {
   const r = routeMap[locale];
   const prefix = `/${locale}`;
 

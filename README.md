@@ -34,7 +34,8 @@ Il server parte su `http://localhost:3000` (oppure sulla porta definita da `PORT
 - `express`: server HTTP e routing
 - `ejs`: rendering lato server delle viste
 - `helmet`: hardening header HTTP
-- `nodemon` (dev): riavvio automatico in sviluppo
+- `typescript`: tipizzazione e compilazione
+- `tsx` (dev): avvio in sviluppo con reload automatico per file TypeScript
 
 ## Struttura Progetto
 
@@ -58,9 +59,10 @@ euracciai-modern-site/
       partners.ejs
       contact.ejs
       404.ejs
-  site-data.js
-  build-static.js
-  server.js
+  site-data.ts
+  build-static.ts
+  server.ts
+  tsconfig.json
   package.json
 ```
 
@@ -101,7 +103,7 @@ npm start
 
 ## Contenuti Dati
 
-I dati principali (anagrafica aziendale, divisioni, applicazioni, partners) sono definiti in `site-data.js`:
+I dati principali (anagrafica aziendale, divisioni, applicazioni, partners) sono definiti in `site-data.ts`:
 
 - `site`
 - `company`

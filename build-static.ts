@@ -1,24 +1,25 @@
-const fs = require('fs/promises');
-const path = require('path');
-const ejs = require('ejs');
-const { divisions, render, routeMap } = require('./site-data');
+import fs from 'fs/promises';
+import path from 'path';
+import ejs from 'ejs';
+import { divisions, render, routeMap } from './site-data';
 
-const ROOT = __dirname;
+const ROOT = process.cwd();
 const VIEWS_DIR = path.join(ROOT, 'views');
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const DIST_DIR = path.join(ROOT, 'dist');
-const LOCALES = ['it', 'en'];
+const LOCALES = ['it', 'en'] as const;
+type Locale = (typeof LOCALES)[number];
 
-async function ensureDir(dirPath) {
+async function ensureDir(dirPath: string) {
   await fs.mkdir(dirPath, { recursive: true });
 }
 
-async function writeHtml(filePath, html) {
+async function writeHtml(filePath: string, html: string) {
   await ensureDir(path.dirname(filePath));
   await fs.writeFile(filePath, html, 'utf8');
 }
 
-async function renderPage(template, data) {
+async function renderPage(template: string, data: unknown) {
   const templatePath = path.join(VIEWS_DIR, `${template}.ejs`);
   return ejs.renderFile(templatePath, data, { views: [VIEWS_DIR] });
 }
@@ -30,7 +31,7 @@ async function copyPublicToDist() {
   }
 }
 
-function localeRoutes(locale) {
+function localeRoutes(locale: Locale) {
   const r = routeMap[locale];
   return [
     { relPath: `${locale}/index.html`, template: 'pages/home', page: 'home', pathKey: 'home', currentPath: `/${locale}` },
