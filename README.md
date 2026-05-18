@@ -43,7 +43,7 @@ euracciai-modern-site/
   public/
     css/styles.css
     js/main.js
-    img/*.svg
+    img/*.png
   views/
     partials/
       head.ejs
@@ -58,6 +58,8 @@ euracciai-modern-site/
       partners.ejs
       contact.ejs
       404.ejs
+  site-data.js
+  build-static.js
   server.js
   package.json
 ```
@@ -89,12 +91,13 @@ npm start
 
 ## Contenuti Dati
 
-I dati principali (anagrafica aziendale, divisioni, applicazioni) sono definiti direttamente in `server.js`:
+I dati principali (anagrafica aziendale, divisioni, applicazioni, partners) sono definiti in `site-data.js`:
 
 - `site`
 - `company`
 - `divisions`
 - `applications`
+- `partners`
 
 Per aggiornare testi/contatti/prodotti è sufficiente modificare questi oggetti.
 
@@ -102,7 +105,23 @@ Per aggiornare testi/contatti/prodotti è sufficiente modificare questi oggetti.
 
 - CSS unico in `public/css/styles.css`
 - Effetti reveal on-scroll in `public/js/main.js` tramite `IntersectionObserver`
-- Asset grafici SVG in `public/img`
+- Asset grafici PNG in `public/img`
+
+## Build Statica
+
+Per pubblicare su un server statico:
+
+```bash
+npm run build:static
+```
+
+Viene generata la cartella `dist/` con:
+
+- HTML prerenderizzato per tutte le rotte
+- `dist/public` con CSS, JS e immagini
+- `dist/404.html` per fallback not found
+
+Pubblica direttamente il contenuto di `dist/`.
 
 ## Sicurezza e Note Tecniche
 
@@ -119,18 +138,8 @@ Per aggiornare testi/contatti/prodotti è sufficiente modificare questi oggetti.
 
 ## Deploy
 
-Il progetto è deployabile su qualsiasi piattaforma Node.js (VM, container, PaaS).
-
-Comando di start in produzione:
-
-```bash
-npm start
-```
-
-Assicurarsi di configurare:
-
-- `NODE_ENV=production`
-- `PORT` secondo ambiente
+- Hosting Node.js dinamico: usa `npm start`
+- Hosting statico (Netlify, Vercel static, GitHub Pages, Nginx, Apache): usa `npm run build:static` e carica `dist/`
 
 ## Licenza
 

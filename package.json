@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build:static": "node build-static.js"
   },
   "dependencies": {
     "ejs": "^3.1.10",
