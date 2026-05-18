@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 const site = {
-  company: 'EURACCIAI SRL',
+  company: 'EURACCIAI S.r.l.',
   payoff: 'Since 1958',
   phone: '+39 02 48 70 4428',
   phoneExtended: '+39 02 48 70 4428 r.a.',
@@ -29,7 +29,7 @@ const site = {
 
 const company = {
   paragraphs: [
-    "L'azienda ha iniziato la sua attività nel 1958. Oggi la terza generazione lavora attivamente in azienda.",
+    "L'azienda ha iniziato la sua attività nel 1958.Oggi la terza generazione lavora attivamente in azienda.",
     'Ci occupiamo di utensili speciali, materiali avanzati, macchine utensili che operano con processi innovativi, e componenti speciali per diversi settori industriali.',
     "L'attività richiede un elevato livello di competenze tecniche che offriamo ai nostri clienti per trovare la soluzione più adatta per migliorare i loro cicli di produzione, la qualità dei loro prodotti e la loro competitività."
   ]
@@ -53,15 +53,15 @@ const divisions = [
     products: [
       {
         title: 'ALBROMET Attrezzature per curvatubi',
-        description: 'Anime omnidirezionali e componenti modulari per curvatubi CNC in leghe speciali ad alte prestazioni.'
+        description: 'Le leghe bronzo alluminio Albromet sono prodotte con tecnologie avanzate e severe procedure di controllo; disponibili anime omnidirezionali e modulari per curvatubi CNC.'
       },
       {
         title: 'Elettrodi per saldatura a resistenza',
-        description: 'Elettrodi su disegno in leghe di rame e tungsteno, con controlli qualità e tracciabilità.'
+        description: 'Euracciai produce e fornisce elettrodi su disegno da molti anni, con verifiche sul materiale in entrata e sul 100% dei pezzi prodotti.'
       },
       {
         title: 'Lame per troncatura tubi e profilati',
-        description: 'Lame verticali e orizzontali per linee di taglio tubi, anche per acciai inox.'
+        description: 'Lame verticali e orizzontali per linee di taglio tubi e profilati, con soluzioni per acciai ferritici e austenitici.'
       },
       {
         title: 'LEGHE BRONZO-ALLUMINIO ALBROMET',
@@ -69,7 +69,7 @@ const divisions = [
       },
       {
         title: 'ALBROMET Leghe di rame ad alta conducibilità',
-        description: 'Materiali per stampi ed elettrodi con elevata conducibilità termica e buona durezza.'
+        description: 'Leghe in rame ad alta conducibilità per stampi e costruzione elettrodi, con elevata conducibilità termica e buona resistenza all\'usura.'
       },
       {
         title: 'Marcatura industriale',
@@ -77,7 +77,7 @@ const divisions = [
       },
       {
         title: 'Tungsteno, Molibdeno, Rame e leghe',
-        description: 'Materiali in barre, lamiere e filo disponibili a stock, anche per realizzazioni a disegno.'
+        description: 'Ampia gamma a magazzino in barre tonde e quadrate, lamiere, piatti e filo, con possibilità di realizzazioni a disegno su richiesta.'
       },
       {
         title: 'Ugelli in carburo di tungsteno - boro - silicio',
@@ -109,7 +109,7 @@ const divisions = [
     products: [
       {
         title: 'COORSTEK - USA',
-        description: 'Produttore leader di ceramiche tecniche con ampia gamma di composizioni ingegneristiche.',
+        description: 'Produttore di riferimento nelle ceramiche tecniche per applicazioni industriali avanzate.',
         url: 'https://www.coorstek.com'
       },
       {
@@ -119,12 +119,12 @@ const divisions = [
       },
       {
         title: 'ULBRICH - USA',
-        description: 'Nastri, lamine e fili speciali in acciai inox e leghe ad alte prestazioni.',
+        description: 'Produzione e distribuzione di nastri, fogli e fili di acciai inox e metalli speciali.',
         url: 'https://www.ulbrich.com'
       },
       {
         title: 'HARALD PIHL - Svezia',
-        description: 'Stock europeo di leghe speciali e titanio per applicazioni industriali critiche.',
+        description: 'Ampia disponibilità di leghe speciali e titanio per esigenze industriali ad alta specifica.',
         url: 'https://www.haraldpihl.com'
       },
       {
@@ -149,17 +149,17 @@ const divisions = [
     products: [
       {
         title: 'FELSS GROUP GmbH - Germania',
-        description: 'Macchine per rullatura e deformazione di tubi, barre e filo; presse orizzontali e sistemi di produzione.',
+        description: 'Macchine per produrre componenti di precisione da tubo, barra e filo; presse orizzontali idrauliche e sistemi di rullatura ad alta precisione.',
         url: 'https://www.felss.com'
       },
       {
         title: 'WEIL-TECHNOLOGY - Germania',
-        description: 'Macchine e linee per formatura, taglio e giunzione, anche in configurazioni turn-key.',
+        description: 'Macchine e sistemi per tecniche innovative di formatura, taglio e giunzione, incluse linee turn-key automatizzate.',
         url: 'https://www.weil-engineering.de'
       },
       {
         title: 'WF MASCHINENBAU UND BLECHFORMTECHNIK - Germania',
-        description: 'Macchine di flow forming per pulegge, componenti trasmissione, dischi, ruote e bombole gas.',
+        description: 'Macchine di flow forming per pulegge, componenti di trasmissione, frizioni, dischi, ruote, bombole gas e altri componenti speciali.',
         url: 'https://www.wf-maschinenbau.com'
       },
       {
