@@ -8,7 +8,6 @@
   <section class="section split">
     <img class="detail-img" src="<%= asset(division.image) %>" alt="<%= division.title %>">
     <div>
-      <h2><%= division.description %></h2>
       <% division.paragraphs.forEach((paragraph) => { %>
         <p><%= paragraph %></p>
       <% }) %>
@@ -18,9 +17,9 @@
   <section class="section value-section">
     <span class="eyebrow"><%= t.pages.contentEyebrow %></span>
     <h2><%= t.pages.contentTitle %></h2>
-    <div class="value-grid compact-list">
+    <div class="value-grid compact-list partners-grid">
       <% division.products.forEach((item) => { %>
-        <div>
+        <div class="partner-card">
           <h3><%= typeof item === 'string' ? item : item.title %></h3>
           <% if (typeof item !== 'string' && item.description) { %>
             <p><%= item.description %></p>

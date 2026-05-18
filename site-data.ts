@@ -6,9 +6,10 @@ const routeMap = {
 const i18n = {
   it: {
     lang: 'it',
-    switchLabel: 'English',
-    nav: { azienda: 'Chi siamo', divisioni: 'Prodotti', applicazioni: 'Applicazioni', partners: 'Partners', contatti: 'Contatti' },
+    switchLabel: 'Inglese',
+    nav: { azienda: 'Chi siamo', divisioni: 'Prodotti', applicazioni: 'Applicazioni', partners: 'Partner', contatti: 'Contatti' },
     home: {
+      brandEyebrow: 'Euracciai',
       intro: 'Utensili speciali, materiali avanzati, macchine utensili che operano con processi innovativi e componenti speciali per diversi settori industriali.',
       ctaProducts: 'Prodotti',
       ctaCompany: 'Chi siamo',
@@ -23,12 +24,13 @@ const i18n = {
     },
     common: {
       contacts: 'Contatti', phone: 'Telefono', fax: 'Fax', email: 'Email', office: 'Sede', division: 'Divisione',
-      directions: 'Come raggiungerci', menu: 'Menu', companyData: 'Dati societari', detail: 'Approfondisci →', backHome: 'Torna alla homepage'
+      directions: 'Come raggiungerci', menu: 'Menu', companyData: 'Dati societari', detail: 'Approfondisci →', backHome: 'Torna alla homepage',
+      homeAria: 'Homepage', mainNavAria: 'Navigazione principale', langSelectorAria: 'Selettore lingua'
     },
     pages: {
       applicationsEyebrow: 'Applicazioni', applicationsTitle: 'Processi e applicazioni', applicationsSubtitle: 'Applicazioni indicate nella divisione MDU',
       productsEyebrow: 'Prodotti', productsTitle: 'Divisioni', productsSubtitle: 'MDU, MACSI e DIVMAC',
-      partnersEyebrow: 'Partners', partnersTitle: 'Partners', partnersSubtitle: 'Collaboriamo con aziende internazionali specializzate in materiali avanzati, componenti tecnici e macchine utensili.',
+      partnersEyebrow: 'Partner', partnersTitle: 'Partner', partnersSubtitle: 'Collaboriamo con aziende internazionali specializzate in materiali avanzati, componenti tecnici e macchine utensili.',
       divisionEyebrow: 'Divisione', contentEyebrow: 'Contenuti', contentTitle: 'Prodotti e partner indicati per questa divisione',
       notFoundTitle: 'Pagina non trovata.', notFoundText: 'La pagina richiesta non esiste o è stata spostata.'
     },
@@ -39,6 +41,7 @@ const i18n = {
     switchLabel: 'Italiano',
     nav: { azienda: 'Company', divisioni: 'Products', applicazioni: 'Applications', partners: 'Partners', contatti: 'Contact' },
     home: {
+      brandEyebrow: 'Euracciai',
       intro: 'Special tools, advanced materials, machine tools with innovative processes, and special components for industrial sectors.',
       ctaProducts: 'Products',
       ctaCompany: 'Company',
@@ -53,7 +56,8 @@ const i18n = {
     },
     common: {
       contacts: 'Contact', phone: 'Phone', fax: 'Fax', email: 'Email', office: 'Office', division: 'Division',
-      directions: 'How to reach us', menu: 'Menu', companyData: 'Company details', detail: 'Learn more →', backHome: 'Back to homepage'
+      directions: 'How to reach us', menu: 'Menu', companyData: 'Company details', detail: 'Learn more →', backHome: 'Back to homepage',
+      homeAria: 'Home', mainNavAria: 'Main navigation', langSelectorAria: 'Language selector'
     },
     pages: {
       applicationsEyebrow: 'Applications', applicationsTitle: 'Processes and applications', applicationsSubtitle: 'Applications referenced in the MDU division',
@@ -69,18 +73,28 @@ const i18n = {
 const site = {
   company: 'EURACCIAI S.r.l.',
   payoff: 'Since 1958',
-  phone: '+39 02 48 70 4428',
-  phoneExtended: '+39 02 48 70 4428 r.a.',
+  phone: '+39 02 48704428',
+  phoneExtended: '+39 02 48704428',
   fax: '+39 02 48 70 8204',
   email: 'info@euracciai.it',
-  address: 'Via Civitali 79 - 20148 Milano (Italy)',
+  address: 'Via Civitali 79 - 20148 Milano (Italia)',
   chamber: 'C.C.I.A.A. Milano 514303',
   capital: 'Capitale Sociale € 46.800',
   registry: 'Trib. Milano Reg. Soc. 102364, Vol. 2742, Fasc. 23',
   vat: 'Codice Fiscale/Partita Iva: 00817960156',
   directions: {
-    it: 'Metro M5 Lilla - Fermata san Siro ippodromo oppure in auto arrivando da qualunque autostrada, immettersi nella Tangenziale Ovest, da questa uscita S. SIRO - fieraminaloncity - CENTRO, percorrere via Novara - via Harar - via dei Rospigliosi. Superato lo STADIO, girare a destra in via Pessano, indi prima a sinistra via Matteo Civitali (angolo via Pessano), al 79 EURACCIAI.',
-    en: 'Take Metro line M5 (Lilla), stop at San Siro Ippodromo. By car from any motorway, enter Tangenziale Ovest, take exit S. SIRO - fieramilanocity - CENTRO, then follow via Novara, via Harar, and via dei Rospigliosi. After the stadium, turn right into via Pessano, then first left into via Matteo Civitali (corner with via Pessano), number 79.'
+    it: {
+      metroTitle: 'In metropolitana',
+      metroText: 'Linea M5 (Lilla), fermata San Siro Ippodromo.',
+      carTitle: 'In auto',
+      carText: 'Da qualunque autostrada: Tangenziale Ovest, uscita S. SIRO - fieramilanocity - CENTRO, poi via Novara, via Harar e via dei Rospigliosi. Superato lo stadio, girare a destra in via Pessano e subito a sinistra in via Matteo Civitali (angolo via Pessano), al numero 79.'
+    },
+    en: {
+      metroTitle: 'By metro',
+      metroText: 'Take Metro line M5 (Lilla), stop at San Siro Ippodromo.',
+      carTitle: 'By car',
+      carText: 'From any motorway: enter Tangenziale Ovest, take exit S. SIRO - fieramilanocity - CENTRO, then follow via Novara, via Harar, and via dei Rospigliosi. After the stadium, turn right into via Pessano, then first left into via Matteo Civitali (corner with via Pessano), number 79.'
+    }
   }
 };
 

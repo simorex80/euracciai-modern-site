@@ -9,16 +9,17 @@
       <h2><%= t.common.contacts %></h2>
       <p><strong><%= t.common.phone %></strong><br><%= site.phoneExtended %></p>
       <p><strong><%= t.common.fax %></strong><br><%= site.fax %></p>
-      <p><strong><%= t.common.email %></strong><br><%= site.email %></p>
+      <p><strong><%= t.common.email %></strong><br><a href="mailto:<%= site.email %>"><%= site.email %></a></p>
       <p><strong><%= t.common.office %></strong><br><%= site.address %></p>
       <hr>
       <% divisions.forEach((division) => { %>
-        <p><strong><%= t.common.division.toUpperCase() %> <%= division.name === 'DIVMAC' ? 'DIVMAC' : division.name %></strong><br><%= division.subtitle %><br><%= division.email %></p>
+        <p><strong><%= t.common.division.toUpperCase() %> <%= division.name === 'DIVMAC' ? 'DIVMAC' : division.name %></strong><br><%= division.subtitle %><br><a href="mailto:<%= division.email %>"><%= division.email %></a></p>
       <% }) %>
     </div>
     <div class="contact-card">
       <h2><%= t.common.directions %></h2>
-      <p><%= site.directions %></p>
+      <p><strong><%= site.directions.metroTitle %></strong><br><%= site.directions.metroText %></p>
+      <p><strong><%= site.directions.carTitle %></strong><br><%= site.directions.carText %></p>
     </div>
   </section>
 </main>

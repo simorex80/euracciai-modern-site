@@ -4,7 +4,7 @@
       <span class="eyebrow"><%= t.common.contacts %></span>
       <h2><%= site.company %></h2>
     </div>
-    <p><%= site.address %><br><%= t.common.phone %> <%= site.phone %> - <%= t.common.fax %> <%= site.fax %><br><%= site.email %></p>
+    <p><%= site.address %><br><%= t.common.phone %> <%= site.phone %> - <%= t.common.fax %> <%= site.fax %><br><a href="mailto:<%= site.email %>"><%= site.email %></a></p>
     <a class="btn btn-primary" href="<%= url(pathFor('contatti')) %>"><%= t.common.contacts %></a>
   </div>
 
@@ -38,7 +38,7 @@
   </div>
   <div class="footer-bottom">
     <span>© <%= new Date().getFullYear() %> <%= site.company %></span>
-    <div class="lang-switch footer-lang" aria-label="Language selector">
+    <div class="lang-switch footer-lang" aria-label="<%= t.common.langSelectorAria %>">
       <a class="lang-link <%= locale === 'it' ? 'active' : '' %>" href="<%= url(localePaths.it) %>">IT</a>
       <span>/</span>
       <a class="lang-link <%= locale === 'en' ? 'active' : '' %>" href="<%= url(localePaths.en) %>">EN</a>

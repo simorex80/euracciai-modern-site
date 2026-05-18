@@ -6,9 +6,9 @@
     <p><%= t.pages.partnersSubtitle %></p>
   </section>
   <section class="section">
-    <div class="value-grid compact-list">
+    <div class="value-grid compact-list partners-grid">
       <% partners.forEach((partner) => { %>
-        <article>
+        <article class="partner-card">
           <h3><%= partner.name %> - <%= partner.country %></h3>
           <p><strong><%= t.common.division %>:</strong> <%= partner.division %></p>
           <p><%= partner.description %></p>

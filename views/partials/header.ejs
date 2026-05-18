@@ -1,19 +1,19 @@
 <header class="site-header">
-  <a class="brand" href="<%= url(pathFor('home')) %>" aria-label="Home">
+  <a class="brand" href="<%= url(pathFor('home')) %>" aria-label="<%= t.common.homeAria %>">
     <span class="brand-mark">E</span>
     <span>
       <strong><%= site.company %></strong>
       <small><%= site.payoff %></small>
     </span>
   </a>
-  <nav class="main-nav" aria-label="Navigazione principale">
+  <nav class="main-nav" aria-label="<%= t.common.mainNavAria %>">
     <a class="<%= page === 'azienda' ? 'active' : '' %>" href="<%= url(pathFor('azienda')) %>"><%= t.nav.azienda %></a>
     <a class="<%= page === 'divisioni' ? 'active' : '' %>" href="<%= url(pathFor('divisioni')) %>"><%= t.nav.divisioni %></a>
     <a class="<%= page === 'applicazioni' ? 'active' : '' %>" href="<%= url(pathFor('applicazioni')) %>"><%= t.nav.applicazioni %></a>
     <a class="<%= page === 'partners' ? 'active' : '' %>" href="<%= url(pathFor('partners')) %>"><%= t.nav.partners %></a>
     <a class="<%= page === 'contatti' ? 'active' : '' %>" href="<%= url(pathFor('contatti')) %>"><%= t.nav.contatti %></a>
   </nav>
-  <div class="lang-switch" aria-label="Language selector">
+  <div class="lang-switch" aria-label="<%= t.common.langSelectorAria %>">
     <a class="lang-link <%= locale === 'it' ? 'active' : '' %>" href="<%= url(localePaths.it) %>">IT</a>
     <span>/</span>
     <a class="lang-link <%= locale === 'en' ? 'active' : '' %>" href="<%= url(localePaths.en) %>">EN</a>
