@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= site.company %> — <%= site.payoff %></title>
   <meta name="description" content="<%= t.metaDescription %>">
+  <script>
+    (function normalizeDirectoryPath() {
+      var p = window.location.pathname;
+      var last = p.split('/').pop();
+      if (!p.endsWith('/') && last && !last.includes('.')) {
+        window.location.replace(p + '/' + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="<%= asset('/css/styles.css') %>">
 </head>
 <body>

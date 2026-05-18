@@ -1,1 +1,19 @@
-<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/it/"><title>Redirect</title></head><body></body></html>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirect</title>
+  <script>
+    (function redirectToDefaultLocale() {
+      var p = window.location.pathname;
+      if (!p.endsWith('/')) {
+        window.location.replace(p + '/' + window.location.search + window.location.hash);
+        return;
+      }
+      window.location.replace(p + 'it/' + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body></body>
+</html>

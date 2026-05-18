@@ -258,12 +258,34 @@ function buildPathFor(locale) {
   };
 }
 
+function routeToStaticFilePath(routePath) {
+  if (!routePath || routePath === '/') return '/index.html';
+  return `${routePath.replace(/\/+$/, '')}/index.html`;
+}
+
+function makeRelative(fromPath, toPath) {
+  const cleanFrom = (fromPath || '/').replace(/\/+$/, '');
+  const fromParts = cleanFrom.split('/').filter(Boolean);
+  const fromDirParts = fromParts;
+  const toParts = (toPath || '/').split('/').filter(Boolean);
+
+  let same = 0;
+  while (same < fromDirParts.length && same < toParts.length && fromDirParts[same] === toParts[same]) same += 1;
+
+  const up = fromDirParts.slice(same).map(() => '..');
+  const down = toParts.slice(same);
+  const rel = [...up, ...down].join('/');
+  return rel || '.';
+}
+
 function render(locale = 'it', page, data = {}) {
   const lang = locale === 'en' ? 'en' : 'it';
   const pathFor = buildPathFor(lang);
+  const staticMode = Boolean(data.staticMode);
   const switchLocale = lang === 'it' ? 'en' : 'it';
   const pathKey = data.pathKey || page;
   const pathParams = data.pathParams || {};
+  const currentPath = data.currentPath || pathFor(pathKey, pathParams);
 
   const selectedDivisions = localized.divisions[lang];
   let division = data.division;
@@ -281,6 +303,8 @@ function render(locale = 'it', page, data = {}) {
     partners: localized.partners[lang],
     page,
     pathFor,
+    url: (target) => makeRelative(currentPath, staticMode ? routeToStaticFilePath(target) : target),
+    asset: (target) => makeRelative(currentPath, target),
     switchPath: buildPathFor(switchLocale)(pathKey, pathParams),
     ...data,
     division

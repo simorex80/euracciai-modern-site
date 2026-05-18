@@ -6,13 +6,13 @@
     <p><%= division.subtitle %></p>
   </section>
   <section class="section split">
-    <img class="detail-img" src="<%= division.image %>" alt="<%= division.title %>">
+    <img class="detail-img" src="<%= asset(division.image) %>" alt="<%= division.title %>">
     <div>
       <h2><%= division.description %></h2>
       <% division.paragraphs.forEach((paragraph) => { %>
         <p><%= paragraph %></p>
       <% }) %>
-      <a class="btn btn-primary" href="<%= pathFor('contatti') %>"><%= t.common.contacts %></a>
+      <a class="btn btn-primary" href="<%= url(pathFor('contatti')) %>"><%= t.common.contacts %></a>
     </div>
   </section>
   <section class="section value-section">

@@ -33,12 +33,12 @@ async function copyPublicToDist() {
 function localeRoutes(locale) {
   const r = routeMap[locale];
   return [
-    { relPath: `${locale}/index.html`, template: 'pages/home', page: 'home', pathKey: 'home' },
-    { relPath: `${locale}/${r.azienda}/index.html`, template: 'pages/company', page: 'azienda', pathKey: 'azienda' },
-    { relPath: `${locale}/${r.divisioni}/index.html`, template: 'pages/divisions', page: 'divisioni', pathKey: 'divisioni' },
-    { relPath: `${locale}/${r.applicazioni}/index.html`, template: 'pages/applications', page: 'applicazioni', pathKey: 'applicazioni' },
-    { relPath: `${locale}/${r.partners}/index.html`, template: 'pages/partners', page: 'partners', pathKey: 'partners' },
-    { relPath: `${locale}/${r.contatti}/index.html`, template: 'pages/contact', page: 'contatti', pathKey: 'contatti' }
+    { relPath: `${locale}/index.html`, template: 'pages/home', page: 'home', pathKey: 'home', currentPath: `/${locale}` },
+    { relPath: `${locale}/${r.azienda}/index.html`, template: 'pages/company', page: 'azienda', pathKey: 'azienda', currentPath: `/${locale}/${r.azienda}` },
+    { relPath: `${locale}/${r.divisioni}/index.html`, template: 'pages/divisions', page: 'divisioni', pathKey: 'divisioni', currentPath: `/${locale}/${r.divisioni}` },
+    { relPath: `${locale}/${r.applicazioni}/index.html`, template: 'pages/applications', page: 'applicazioni', pathKey: 'applicazioni', currentPath: `/${locale}/${r.applicazioni}` },
+    { relPath: `${locale}/${r.partners}/index.html`, template: 'pages/partners', page: 'partners', pathKey: 'partners', currentPath: `/${locale}/${r.partners}` },
+    { relPath: `${locale}/${r.contatti}/index.html`, template: 'pages/contact', page: 'contatti', pathKey: 'contatti', currentPath: `/${locale}/${r.contatti}` }
   ];
 }
 
@@ -49,7 +49,7 @@ async function buildStatic() {
 
   for (const locale of LOCALES) {
     for (const route of localeRoutes(locale)) {
-      const html = await renderPage(route.template, render(locale, route.page, { pathKey: route.pathKey }));
+      const html = await renderPage(route.template, render(locale, route.page, { pathKey: route.pathKey, currentPath: route.currentPath, staticMode: true }));
       await writeHtml(path.join(DIST_DIR, route.relPath), html);
     }
 
@@ -57,18 +57,36 @@ async function buildStatic() {
     for (const division of divisions) {
       const html = await renderPage(
         'pages/division-detail',
-        render(locale, 'divisioni', { division, pathKey: 'divisioni', pathParams: { id: division.id } })
+        render(locale, 'divisioni', { division, pathKey: 'divisioni', pathParams: { id: division.id }, currentPath: `/${locale}/${divisionSlug}/${division.id}`, staticMode: true })
       );
       await writeHtml(path.join(DIST_DIR, locale, divisionSlug, division.id, 'index.html'), html);
     }
 
-    const notFound = await renderPage('pages/404', render(locale, '404', { pathKey: 'home' }));
+    const notFound = await renderPage('pages/404', render(locale, '404', { pathKey: 'home', currentPath: `/${locale}/404`, staticMode: true }));
     await writeHtml(path.join(DIST_DIR, locale, '404.html'), notFound);
   }
 
-  const rootIndex = '<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=/it/"><title>Redirect</title></head><body></body></html>';
+  const rootIndex = `<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirect</title>
+  <script>
+    (function redirectToDefaultLocale() {
+      var p = window.location.pathname;
+      if (!p.endsWith('/')) {
+        window.location.replace(p + '/' + window.location.search + window.location.hash);
+        return;
+      }
+      window.location.replace(p + 'it/' + window.location.search + window.location.hash);
+    })();
+  </script>
+</head>
+<body></body>
+</html>`;
   await writeHtml(path.join(DIST_DIR, 'index.html'), rootIndex);
-  await writeHtml(path.join(DIST_DIR, '404.html'), await renderPage('pages/404', render('it', '404', { pathKey: 'home' })));
+  await writeHtml(path.join(DIST_DIR, '404.html'), await renderPage('pages/404', render('it', '404', { pathKey: 'home', currentPath: '/', staticMode: true })));
 }
 
 buildStatic()

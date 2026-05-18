@@ -1,5 +1,5 @@
 <header class="site-header">
-  <a class="brand" href="<%= pathFor('home') %>" aria-label="Home">
+  <a class="brand" href="<%= url(pathFor('home')) %>" aria-label="Home">
     <span class="brand-mark">E</span>
     <span>
       <strong><%= site.company %></strong>
@@ -7,11 +7,11 @@
     </span>
   </a>
   <nav class="main-nav" aria-label="Navigazione principale">
-    <a class="<%= page === 'azienda' ? 'active' : '' %>" href="<%= pathFor('azienda') %>"><%= t.nav.azienda %></a>
-    <a class="<%= page === 'divisioni' ? 'active' : '' %>" href="<%= pathFor('divisioni') %>"><%= t.nav.divisioni %></a>
-    <a class="<%= page === 'applicazioni' ? 'active' : '' %>" href="<%= pathFor('applicazioni') %>"><%= t.nav.applicazioni %></a>
-    <a class="<%= page === 'partners' ? 'active' : '' %>" href="<%= pathFor('partners') %>"><%= t.nav.partners %></a>
-    <a class="<%= page === 'contatti' ? 'active' : '' %>" href="<%= pathFor('contatti') %>"><%= t.nav.contatti %></a>
+    <a class="<%= page === 'azienda' ? 'active' : '' %>" href="<%= url(pathFor('azienda')) %>"><%= t.nav.azienda %></a>
+    <a class="<%= page === 'divisioni' ? 'active' : '' %>" href="<%= url(pathFor('divisioni')) %>"><%= t.nav.divisioni %></a>
+    <a class="<%= page === 'applicazioni' ? 'active' : '' %>" href="<%= url(pathFor('applicazioni')) %>"><%= t.nav.applicazioni %></a>
+    <a class="<%= page === 'partners' ? 'active' : '' %>" href="<%= url(pathFor('partners')) %>"><%= t.nav.partners %></a>
+    <a class="<%= page === 'contatti' ? 'active' : '' %>" href="<%= url(pathFor('contatti')) %>"><%= t.nav.contatti %></a>
   </nav>
-  <a class="btn btn-ghost header-cta" href="<%= switchPath %>"><%= t.switchLabel %></a>
+  <a class="btn btn-ghost header-cta" href="<%= url(switchPath) %>"><%= t.switchLabel %></a>
 </header>

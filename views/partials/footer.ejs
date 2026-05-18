@@ -5,27 +5,27 @@
       <h2><%= site.company %></h2>
     </div>
     <p><%= site.address %><br><%= t.common.phone %> <%= site.phone %> - <%= t.common.fax %> <%= site.fax %><br><%= site.email %></p>
-    <a class="btn btn-primary" href="<%= pathFor('contatti') %>"><%= t.common.contacts %></a>
+    <a class="btn btn-primary" href="<%= url(pathFor('contatti')) %>"><%= t.common.contacts %></a>
   </div>
 
   <div class="footer-grid">
     <div>
-      <a class="brand footer-brand" href="<%= pathFor('home') %>">
+      <a class="brand footer-brand" href="<%= url(pathFor('home')) %>">
         <span class="brand-mark">E</span>
         <span><strong><%= site.company %></strong><small><%= site.payoff %></small></span>
       </a>
     </div>
     <div>
       <h3><%= t.common.menu %></h3>
-      <a href="<%= pathFor('azienda') %>"><%= t.nav.azienda %></a>
-      <a href="<%= pathFor('divisioni') %>"><%= t.nav.divisioni %></a>
-      <a href="<%= pathFor('partners') %>"><%= t.nav.partners %></a>
-      <a href="<%= pathFor('contatti') %>"><%= t.nav.contatti %></a>
+      <a href="<%= url(pathFor('azienda')) %>"><%= t.nav.azienda %></a>
+      <a href="<%= url(pathFor('divisioni')) %>"><%= t.nav.divisioni %></a>
+      <a href="<%= url(pathFor('partners')) %>"><%= t.nav.partners %></a>
+      <a href="<%= url(pathFor('contatti')) %>"><%= t.nav.contatti %></a>
     </div>
     <div>
       <h3><%= t.home.divisionsTitle %></h3>
       <% divisions.forEach((division) => { %>
-        <a href="<%= pathFor('divisioni', { id: division.id }) %>"><%= division.name %> — <%= division.subtitle %></a>
+        <a href="<%= url(pathFor('divisioni', { id: division.id })) %>"><%= division.name %> — <%= division.subtitle %></a>
       <% }) %>
     </div>
     <div>
@@ -40,6 +40,6 @@
     <span>© <%= new Date().getFullYear() %> <%= site.company %></span>
   </div>
 </footer>
-<script src="/js/main.js"></script>
+<script src="<%= asset('/js/main.js') %>"></script>
 </body>
 </html>

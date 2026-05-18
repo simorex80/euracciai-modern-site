@@ -9,8 +9,8 @@
       <h1><span>Since 1958</span></h1>
       <p><%= t.home.intro %></p>
       <div class="actions">
-        <a class="btn btn-primary" href="<%= pathFor('divisioni') %>"><%= t.home.ctaProducts %></a>
-        <a class="btn btn-ghost" href="<%= pathFor('azienda') %>"><%= t.home.ctaCompany %></a>
+        <a class="btn btn-primary" href="<%= url(pathFor('divisioni')) %>"><%= t.home.ctaProducts %></a>
+        <a class="btn btn-ghost" href="<%= url(pathFor('azienda')) %>"><%= t.home.ctaCompany %></a>
       </div>
       <div class="hero-badges">
         <div><strong>1958</strong><small><%= t.home.startActivity %></small></div>
@@ -30,12 +30,12 @@
   <section class="cards-grid section-tight">
     <% divisions.forEach((division) => { %>
       <article class="division-card reveal">
-        <img src="<%= division.image %>" alt="<%= division.title %>">
+        <img src="<%= asset(division.image) %>" alt="<%= division.title %>">
         <div class="card-body">
           <h3 class="accent-<%= division.color %>"><%= division.name %></h3>
           <strong><%= division.subtitle %></strong>
           <p><%= division.description %></p>
-          <a href="<%= pathFor('divisioni', { id: division.id }) %>"><%= t.home.cardOpen %> <%= division.name %> →</a>
+          <a href="<%= url(pathFor('divisioni', { id: division.id })) %>"><%= t.home.cardOpen %> <%= division.name %> →</a>
         </div>
       </article>
     <% }) %>

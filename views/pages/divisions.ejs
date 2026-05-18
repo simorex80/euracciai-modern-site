@@ -8,12 +8,12 @@
   <section class="cards-grid section">
     <% divisions.forEach((division) => { %>
       <article class="division-card">
-        <img src="<%= division.image %>" alt="<%= division.title %>">
+        <img src="<%= asset(division.image) %>" alt="<%= division.title %>">
         <div class="card-body">
           <h3 class="accent-<%= division.color %>"><%= division.name %></h3>
           <strong><%= division.subtitle %></strong>
           <p><%= division.description %></p>
-          <a href="<%= pathFor('divisioni', { id: division.id }) %>"><%= t.common.detail %></a>
+          <a href="<%= url(pathFor('divisioni', { id: division.id })) %>"><%= t.common.detail %></a>
         </div>
       </article>
     <% }) %>

@@ -5,14 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EURACCIAI S.r.l. — Since 1958</title>
   <meta name="description" content="Euracciai S.r.l. provides special tools, advanced materials, innovative machine tools, and special components for multiple industrial sectors.">
+  <script>
+    (function normalizeDirectoryPath() {
+      var p = window.location.pathname;
+      var last = p.split('/').pop();
+      if (!p.endsWith('/') && last && !last.includes('.')) {
+        window.location.replace(p + '/' + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
 <header class="site-header">
-  <a class="brand" href="/en" aria-label="Home">
+  <a class="brand" href="../index.html" aria-label="Home">
     <span class="brand-mark">E</span>
     <span>
       <strong>EURACCIAI S.r.l.</strong>
@@ -20,16 +29,16 @@
     </span>
   </a>
   <nav class="main-nav" aria-label="Navigazione principale">
-    <a class="" href="/en/company">Company</a>
-    <a class="" href="/en/divisions">Products</a>
-    <a class="" href="/en/applications">Applications</a>
-    <a class="" href="/en/partners">Partners</a>
-    <a class="" href="/en/contact">Contact</a>
+    <a class="" href="../company/index.html">Company</a>
+    <a class="" href="../divisions/index.html">Products</a>
+    <a class="" href="../applications/index.html">Applications</a>
+    <a class="" href="../partners/index.html">Partners</a>
+    <a class="" href="../contact/index.html">Contact</a>
   </nav>
-  <a class="btn btn-ghost header-cta" href="/it">Italiano</a>
+  <a class="btn btn-ghost header-cta" href="../../it/index.html">Italiano</a>
 </header>
 
-<main class="page"><section class="page-hero"><span class="eyebrow">404</span><h1>Page not found.</h1><p>The requested page does not exist or has been moved.</p><a class="btn btn-primary" href="/en">Back to homepage</a></section></main>
+<main class="page"><section class="page-hero"><span class="eyebrow">404</span><h1>Page not found.</h1><p>The requested page does not exist or has been moved.</p><a class="btn btn-primary" href="../index.html">Back to homepage</a></section></main>
 <footer class="site-footer">
   <div class="footer-cta">
     <div>
@@ -37,31 +46,31 @@
       <h2>EURACCIAI S.r.l.</h2>
     </div>
     <p>Via Civitali 79 - 20148 Milano (Italy)<br>Phone +39 02 48 70 4428 - Fax +39 02 48 70 8204<br>info@euracciai.it</p>
-    <a class="btn btn-primary" href="/en/contact">Contact</a>
+    <a class="btn btn-primary" href="../contact/index.html">Contact</a>
   </div>
 
   <div class="footer-grid">
     <div>
-      <a class="brand footer-brand" href="/en">
+      <a class="brand footer-brand" href="../index.html">
         <span class="brand-mark">E</span>
         <span><strong>EURACCIAI S.r.l.</strong><small>Since 1958</small></span>
       </a>
     </div>
     <div>
       <h3>Menu</h3>
-      <a href="/en/company">Company</a>
-      <a href="/en/divisions">Products</a>
-      <a href="/en/partners">Partners</a>
-      <a href="/en/contact">Contact</a>
+      <a href="../company/index.html">Company</a>
+      <a href="../divisions/index.html">Products</a>
+      <a href="../partners/index.html">Partners</a>
+      <a href="../contact/index.html">Contact</a>
     </div>
     <div>
       <h3>Divisions</h3>
       
-        <a href="/en/divisions/mdu">MDU — Carbide - tools - electrodes - nozzles</a>
+        <a href="../divisions/mdu/index.html">MDU — Carbide - tools - electrodes - nozzles</a>
       
-        <a href="/en/divisions/macsi">MACSI — Special materials and plant components</a>
+        <a href="../divisions/macsi/index.html">MACSI — Special materials and plant components</a>
       
-        <a href="/en/divisions/divmac">DIVMAC — Machine tools</a>
+        <a href="../divisions/divmac/index.html">DIVMAC — Machine tools</a>
       
     </div>
     <div>
@@ -76,7 +85,7 @@
     <span>© 2026 EURACCIAI S.r.l.</span>
   </div>
 </footer>
-<script src="/js/main.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>
 
