@@ -11,8 +11,11 @@
   <div class="footer-grid">
     <div>
       <a class="brand footer-brand" href="<%= url(pathFor('home')) %>">
-        <span class="brand-mark">E</span>
-        <span><strong><%= site.company %></strong><small><%= site.payoff %></small></span>
+        <img class="brand-logo footer-logo" src="<%= asset('/img/logo-euracciai.png') %>" alt="<%= site.company %>">
+        <span class="brand-copy">
+          <strong><%= site.company %></strong>
+          <small><%= site.payoff %></small>
+        </span>
       </a>
     </div>
     <div>
