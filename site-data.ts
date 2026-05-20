@@ -35,7 +35,7 @@ const i18n = {
       productEyebrow: 'Scheda prodotto', productBack: 'Torna ai prodotti', relatedDivision: 'Divisione di riferimento',
       divisionsEyebrow: 'Divisioni', divisionsTitle: 'Divisioni', divisionsSubtitle: 'MDU, MACSI e DIVMAC',
       partnersEyebrow: 'Partner', partnersTitle: 'Partner', partnersSubtitle: 'Collaboriamo con aziende internazionali specializzate in materiali avanzati, componenti tecnici e macchine utensili.',
-      divisionEyebrow: 'Divisione', contentEyebrow: 'Contenuti', contentTitle: 'Prodotti e partner indicati per questa divisione',
+      divisionEyebrow: 'Divisione', contentEyebrow: 'Prodotti', contentTitle: 'Prodotti e partner indicati per questa divisione',
       notFoundTitle: 'Pagina non trovata.', notFoundText: 'La pagina richiesta non esiste o è stata spostata.'
     },
     metaDescription: 'Euracciai S.r.l. si occupa di utensili speciali, materiali avanzati, macchine utensili con processi innovativi e componenti speciali per diversi settori industriali.'
@@ -69,7 +69,7 @@ const i18n = {
       productEyebrow: 'Product sheet', productBack: 'Back to products', relatedDivision: 'Related division',
       divisionsEyebrow: 'Divisions', divisionsTitle: 'Divisions', divisionsSubtitle: 'MDU, MACSI and DIVMAC',
       partnersEyebrow: 'Partners', partnersTitle: 'Partners', partnersSubtitle: 'We cooperate with international companies specialized in advanced materials, technical components, and machine tools.',
-      divisionEyebrow: 'Division', contentEyebrow: 'Contents', contentTitle: 'Products and partners listed for this division',
+      divisionEyebrow: 'Division', contentEyebrow: 'Products', contentTitle: 'Products and partners listed for this division',
       notFoundTitle: 'Page not found.', notFoundText: 'The requested page does not exist or has been moved.'
     },
     metaDescription: 'Euracciai S.r.l. provides special tools, advanced materials, innovative machine tools, and special components for multiple industrial sectors.'
@@ -132,16 +132,86 @@ const localized = {
           'Euracciai dispone inoltre di materiali a magazzino e di soluzioni su disegno per forniture rapide e progetti personalizzati, con attenzione a continuità produttiva e tracciabilità.'
         ],
         products: [
-          { title: 'ALBROMET Attrezzature per curvatubi', description: 'Le leghe bronzo alluminio Albromet sono prodotte con tecnologie avanzate e severe procedure di controllo; disponibili anime omnidirezionali e modulari per curvatubi CNC.' },
-          { title: 'Elettrodi per saldatura a resistenza', description: 'Euracciai produce e fornisce elettrodi su disegno da molti anni, con verifiche sul materiale in entrata e sul 100% dei pezzi prodotti.' },
-          { title: 'Lame per troncatura tubi e profilati', description: 'Lame verticali e orizzontali per linee di taglio tubi e profilati, con soluzioni per acciai ferritici e austenitici.' },
-          { title: 'LEGHE BRONZO-ALLUMINIO ALBROMET', description: "Leghe con alta resistenza all'usura e basse frizioni per componenti di impianto e macchine." },
-          { title: 'ALBROMET Leghe di rame ad alta conducibilità', description: "Leghe in rame ad alta conducibilità per stampi e costruzione elettrodi, con elevata conducibilità termica e buona resistenza all'usura." },
-          { title: 'Marcatura industriale', description: 'Stampi incisi, punzoni, caratteri e sistemi di marcatura per metalli e tubi.' },
-          { title: 'Tungsteno, Molibdeno, Rame e leghe', description: 'Ampia gamma a magazzino in barre tonde e quadrate, lamiere, piatti e filo, con possibilità di realizzazioni a disegno su richiesta.' },
-          { title: 'Ugelli in carburo di tungsteno - boro - silicio', description: 'Ugelli ad alta resistenza per applicazioni abrasive e processi ad alta usura.' },
-          { title: 'Boccole e parti di usura in metallo duro', description: 'Componenti antiusura per ambienti severi con elevate sollecitazioni meccaniche.' },
-          { title: 'Utensili speciali in metallo duro per asportazione di truciolo', description: 'Utensili personalizzati per incrementare qualità, produttività e durata in esercizio.' }
+                  {
+                            title: "Attrezzature per curvatubi - Albromet",
+                            description: "Anime omnidirezionali, anime snodate e controslitte/tasselli anti-grinze in leghe bronzo-alluminio Albromet per curvatubi CNC."
+                  },
+                  {
+                            title: "Elettrodi per saldatura a resistenza",
+                            description: "Elettrodi su disegno, integrali o saldobrasati, con controllo qualità sul materiale in entrata e sul 100% dei pezzi prodotti."
+                  },
+                  {
+                            title: "Lame per troncatura tubi e profilati",
+                            description: "Lame verticali e orizzontali New-Form Tools per linee di taglio tubi e profilati, anche in acciai inossidabili ferritici e austenitici."
+                  },
+                  {
+                            title: "Leghe Bronzo-Alluminio Albromet",
+                            description: "Leghe bronzo-alluminio con elevate caratteristiche meccaniche, resistenza all’usura, bassi coefficienti di attrito e buona conducibilità termica."
+                  },
+                  {
+                            title: "Leghe di rame ad alta conducibilità - Albromet",
+                            description: "Leghe speciali in rame ad alta conducibilità per stampi, inserti difficili da raffreddare ed elettrodi per saldatura a resistenza."
+                  },
+                  {
+                            title: "Marcatura industriale",
+                            description: "Stampi incisi, punzoni, caratteri, portacaratteri, numeratori e ruote di marcatura per metalli, tubi e componenti meccanici."
+                  },
+                  {
+                            title: "Ugelli in carburo di tungsteno, boro e silicio",
+                            description: "Ugelli standard e speciali in metallo duro, carburo di boro e carburo di silicio, anche con corpi in acciaio zincato o alluminio."
+                  },
+                  {
+                            title: "CCNB (Rame/Cobalto/Nickel/Berillio)",
+                            description: "Lega con buone caratteristiche di conducibilità termica ed elettrica, durezza e resistenza alle temperature elevate."
+                  },
+                  {
+                            title: "CCZ (Rame/Cromo/Zirconio)",
+                            description: "Lega di rame studiata per incrementare durezza e resistenza alle temperature elevate, indicata anche per saldatura di acciai rivestiti."
+                  },
+                  {
+                            title: "Elconite W/Cu 75/25",
+                            description: "Lega rame-tungsteno sinterizzata con buona conducibilità, resistenza alle alte temperature e resistenza alla rottura."
+                  },
+                  {
+                            title: "Molibdeno puro",
+                            description: "Metallo duro e duttile con elevato punto di fusione, utilizzato in apparecchiature ad alte temperature e come elettrodo di saldatura."
+                  },
+                  {
+                            title: "Niobio fogli, lamiere, tondi e tubi",
+                            description: "Niobio e leghe di niobio con alto punto di fusione, resistenza alla corrosione e buone proprietà di lavorazione a freddo."
+                  },
+                  {
+                            title: "Tantalio fogli, lamiere, tondi e tubi",
+                            description: "Tantalio e leghe di tantalio con alto punto di fusione, resistenza alla corrosione e buone caratteristiche di lavorazione a freddo."
+                  },
+                  {
+                            title: "Tungsteno ad alta densità W/Ni/Cu",
+                            description: "Leghe ad alta densità con contenuto di tungsteno tra il 90% e il 98%, utilizzate per schermature, bilanciamenti e componenti speciali."
+                  },
+                  {
+                            title: "Tungsteno ad alta densità W/Ni/Fe",
+                            description: "Leghe pesanti di tungsteno con nichel e ferro, caratterizzate da alta densità e alto modulo elastico."
+                  },
+                  {
+                            title: "Tungsteno puro (Wolframio)",
+                            description: "Metallo grigio ottenuto da sinterizzazione, con alta densità, altissimo punto di fusione e bassa dilatazione termica."
+                  },
+                  {
+                            title: "TZM (Titanio/Zirconio/Molibdeno)",
+                            description: "Lega di molibdeno con titanio e zirconio, indicata per parti strutturali che lavorano ad alte temperature."
+                  },
+                  {
+                            title: "Zirconio fogli, lamiere, tondi e tubi",
+                            description: "Zirconio e leghe di zirconio resistenti alla corrosione per apparecchiature chimiche e scambiatori di calore."
+                  },
+                  {
+                            title: "Particolari in metallo duro",
+                            description: "Particolari speciali in diversi gradi di metallo duro a disegno: boccole, denti, matrici, punzoni e sedi di calibratura."
+                  },
+                  {
+                            title: "Utensili speciali in metallo duro per asportazione di truciolo",
+                            description: "Frese, alesatori, allargatori, utensili profilati, inserti e utensili speciali in metallo duro a disegno."
+                  }
         ]
       },
       {
@@ -152,12 +222,30 @@ const localized = {
           'La divisione supporta la scelta del materiale e del componente più idoneo per durata, affidabilità, manutenzione e costi complessivi di esercizio.'
         ],
         products: [
-          { title: 'COORSTEK - USA', description: 'Produttore di riferimento nelle ceramiche tecniche per applicazioni industriali avanzate.', url: 'https://www.coorstek.com' },
-          { title: 'STEINHAUS - Germania', description: 'Griglie e cilindri filtranti di precisione; nastri trasportatori laminati per forni a tunnel.', url: 'https://www.steinhaus-gmbh.de' },
-          { title: 'STEINHAUS - Germania - Nastri trasportatori per forni', description: 'Nastri trasportatori laminati per forni a tunnel e applicazioni industriali ad alta temperatura.', url: 'https://www.steinhaus-gmbh.de' },
-          { title: 'ULBRICH - USA', description: 'Produzione e distribuzione di nastri, fogli e fili di acciai inox e metalli speciali.', url: 'https://www.ulbrich.com' },
-          { title: 'HARALD PIHL - Svezia', description: 'Ampia disponibilità di leghe speciali e titanio per esigenze industriali ad alta specifica.', url: 'https://www.haraldpihl.com' },
-          { title: 'ABREMA - Grecia', description: 'Componenti e materiali speciali per applicazioni tecniche e impiantistiche.' }
+                  {
+                            title: "Materiali ceramici tecnici Coorstek",
+                            description: "Componenti in materiali ceramici tecnici per applicazioni industriali avanzate, prodotti con tecnologie diverse e materiali specifici."
+                  },
+                  {
+                            title: "STEINHAUS - Griglie e cilindri filtranti di precisione",
+                            description: "Griglie e cilindri filtranti di precisione per applicazioni industriali e impiantistiche."
+                  },
+                  {
+                            title: "STEINHAUS - Nastri trasportatori laminati per forni",
+                            description: "Nastri trasportatori laminati per forni a tunnel e processi ad alta temperatura."
+                  },
+                  {
+                            title: "ULBRICH - Nastri, fili piani e fili sagomati",
+                            description: "Nastri extra sottili, fili piani e fili sagomati di precisione in inox, leghe di nickel, titanio, cobalto e niobio."
+                  },
+                  {
+                            title: "HARALD PIHL - Leghe speciali",
+                            description: "Leghe di nickel, titanio, rame e altre leghe disponibili in tubi, tondi, piatti, lamiere, filo e nastri."
+                  },
+                  {
+                            title: "Lamiere ricaricate antiusura",
+                            description: "Lamiere con base in acciaio al carbonio e rivestimento antiusura in carburi di cromo ad alta densità."
+                  }
         ]
       },
       {
@@ -168,10 +256,22 @@ const localized = {
           "L'obiettivo è bilanciare flessibilità, produttività e qualità del processo, con configurazioni adatte sia a linee automatiche sia a contesti ad alta variabilità."
         ],
         products: [
-          { title: 'FELSS GROUP GmbH - Germania', description: 'Macchine per produrre componenti di precisione da tubo, barra e filo; presse orizzontali idrauliche e sistemi di rullatura ad alta precisione.', url: 'https://www.felss.com' },
-          { title: 'WEIL-TECHNOLOGY - Germania', description: 'Macchine e sistemi per tecniche innovative di formatura, taglio e giunzione, incluse linee turn-key automatizzate.', url: 'https://www.weil-engineering.de' },
-          { title: 'WF MASCHINENBAU UND BLECHFORMTECHNIK - Germania', description: 'Macchine di flow forming per pulegge, componenti di trasmissione, frizioni, dischi, ruote, bombole gas e altri componenti speciali.', url: 'https://www.wf-maschinenbau.com' },
-          { title: 'LESSMANN GmbH - Germania', description: 'Spazzole industriali per sbavatura e finitura metalli, pipeline-welding e applicazioni speciali.', url: 'https://www.lessmann.com' }
+                  {
+                            title: "FELSS GROUP GmbH - Germania",
+                            description: "Macchine per componenti di precisione mediante deformazione a freddo da tubo, barra e filo; presse orizzontali, laminatoi e banchi di trafila."
+                  },
+                  {
+                            title: "WEIL-TECHNOLOGY - Germania",
+                            description: "Macchine automatiche NC di saldatura longitudinale, calandratura e linee integrate flessibili per componenti tubolari."
+                  },
+                  {
+                            title: "WF MASCHINENBAU UND BLECHFORMTECHNIK - Germania",
+                            description: "Macchine di flow forming per pulegge, organi di trasmissione, frizioni, dischi, cerchi, ruote e bombole per gas."
+                  },
+                  {
+                            title: "Spazzole Tecniche - LESSMANN",
+                            description: "Spazzole tecniche di alta qualità per sbavatura, finitura, ripresa saldatura, cut back e applicazioni industriali speciali."
+                  }
         ]
       }
     ],
@@ -185,16 +285,86 @@ const localized = {
           'Euracciai also offers stock materials and custom-made solutions for fast deliveries and tailor-made projects, with focus on production continuity and traceability.'
         ],
         products: [
-          { title: 'ALBROMET Tube Bending Equipment', description: 'Albromet aluminum-bronze alloys are produced with advanced technologies and strict controls; omnidirectional and modular mandrels are available for CNC tube benders.' },
-          { title: 'Resistance Welding Electrodes', description: 'Euracciai has been producing and supplying custom electrodes for many years, with incoming material checks and 100% inspection of produced parts.' },
-          { title: 'Tube and Profile Cut-Off Blades', description: 'Vertical and horizontal blades for tube/profile cutting lines, including solutions for ferritic and austenitic steels.' },
-          { title: 'ALBROMET ALUMINUM-BRONZE ALLOYS', description: 'Alloys with high wear resistance and low friction for plant and machinery components.' },
-          { title: 'ALBROMET High-Conductivity Copper Alloys', description: 'High-conductivity copper alloys for molds and electrodes, combining thermal conductivity with wear resistance.' },
-          { title: 'Industrial Marking', description: 'Engraved dies, punches, characters, and marking systems for metals and tubes.' },
-          { title: 'Tungsten, Molybdenum, Copper and Alloys', description: 'Wide stock range in round/square bars, sheets, flats and wire, with custom machining available.' },
-          { title: 'Tungsten Carbide - Boron - Silicon Nozzles', description: 'Highly wear-resistant nozzles for abrasive applications and high-wear processes.' },
-          { title: 'Carbide Bushings and Wear Parts', description: 'Wear-resistant components for severe environments with high mechanical stress.' },
-          { title: 'Special Carbide Cutting Tools', description: 'Custom tools designed to improve quality, productivity, and service life.' }
+                  {
+                            title: "Tube bending equipment - Albromet",
+                            description: "Omnidirectional mandrels, articulated mandrels, and anti-wrinkle tooling in Albromet aluminum-bronze alloys for CNC tube benders."
+                  },
+                  {
+                            title: "Resistance welding electrodes",
+                            description: "Custom electrodes, integral or brazed, with incoming material checks and inspection on 100% of produced parts."
+                  },
+                  {
+                            title: "Tube and profile cut-off blades",
+                            description: "New-Form Tools vertical and horizontal blades for tube/profile cutting lines, including stainless ferritic and austenitic steels."
+                  },
+                  {
+                            title: "Albromet aluminum-bronze alloys",
+                            description: "Aluminum-bronze alloys with strong mechanical properties, wear resistance, low friction, and good thermal conductivity."
+                  },
+                  {
+                            title: "High-conductivity copper alloys - Albromet",
+                            description: "Special high-conductivity copper alloys for molds, hard-to-cool inserts, and resistance welding electrodes."
+                  },
+                  {
+                            title: "Industrial marking",
+                            description: "Engraved dies, punches, characters, type holders, numbering units, and marking wheels for metals, tubes, and mechanical components."
+                  },
+                  {
+                            title: "Tungsten carbide, boron, and silicon nozzles",
+                            description: "Standard and special nozzles made of carbide, boron carbide, and silicon carbide, also with galvanized steel or aluminum bodies."
+                  },
+                  {
+                            title: "CCNB (Copper/Cobalt/Nickel/Beryllium)",
+                            description: "Alloy with good thermal and electrical conductivity, hardness, and resistance to high temperatures."
+                  },
+                  {
+                            title: "CCZ (Copper/Chromium/Zirconium)",
+                            description: "Copper alloy designed to increase hardness and resistance to high temperatures, also suitable for welding coated steels."
+                  },
+                  {
+                            title: "Elconite W/Cu 75/25",
+                            description: "Sintered copper-tungsten alloy with good conductivity, resistance to high temperatures, and breaking strength."
+                  },
+                  {
+                            title: "Pure molybdenum",
+                            description: "Hard and ductile metal with a high melting point, used in high-temperature equipment and welding electrodes."
+                  },
+                  {
+                            title: "Niobium sheets, plates, rounds, and tubes",
+                            description: "Niobium and niobium alloys with high melting point, corrosion resistance, and good cold-working properties."
+                  },
+                  {
+                            title: "Tantalum sheets, plates, rounds, and tubes",
+                            description: "Tantalum and tantalum alloys with high melting point, corrosion resistance, and good cold-working properties."
+                  },
+                  {
+                            title: "High-density tungsten W/Ni/Cu",
+                            description: "High-density alloys with tungsten content between 90% and 98%, used for shielding, balancing, and special components."
+                  },
+                  {
+                            title: "High-density tungsten W/Ni/Fe",
+                            description: "Heavy tungsten alloys with nickel and iron, characterized by high density and high elastic modulus."
+                  },
+                  {
+                            title: "Pure tungsten (Wolfram)",
+                            description: "Gray sintered metal with high density, extremely high melting point, and low thermal expansion."
+                  },
+                  {
+                            title: "TZM (Titanium/Zirconium/Molybdenum)",
+                            description: "Molybdenum alloy with titanium and zirconium, suitable for structural parts working at high temperatures."
+                  },
+                  {
+                            title: "Zirconium sheets, plates, rounds, and tubes",
+                            description: "Zirconium and zirconium alloys resistant to corrosion for chemical equipment and heat exchangers."
+                  },
+                  {
+                            title: "Carbide special parts",
+                            description: "Custom special parts in different carbide grades: bushings, teeth, dies, punches, and calibration seats."
+                  },
+                  {
+                            title: "Special carbide cutting tools",
+                            description: "Custom carbide mills, reamers, enlargers, profiled tools, inserts, and special cutting tools."
+                  }
         ]
       },
       {
@@ -205,12 +375,30 @@ const localized = {
           'The division supports selecting the right material and component for durability, reliability, maintenance, and total operating cost.'
         ],
         products: [
-          { title: 'COORSTEK - USA', description: 'Leading manufacturer of technical ceramics for advanced industrial applications.', url: 'https://www.coorstek.com' },
-          { title: 'STEINHAUS - Germany', description: 'Precision filtering grids and cylinders; laminated conveyor belts for tunnel furnaces.', url: 'https://www.steinhaus-gmbh.de' },
-          { title: 'STEINHAUS - Germany - Conveyor belts for ovens', description: 'Rolled conveyor belts for tunnel ovens and high-temperature industrial applications.', url: 'https://www.steinhaus-gmbh.de' },
-          { title: 'ULBRICH - USA', description: 'Production and distribution of strips, sheets, and wires in stainless steels and special metals.', url: 'https://www.ulbrich.com' },
-          { title: 'HARALD PIHL - Sweden', description: 'Broad availability of special alloys and titanium for critical industrial needs.', url: 'https://www.haraldpihl.com' },
-          { title: 'ABREMA - Greece', description: 'Special components and materials for technical and plant-engineering applications.' }
+                  {
+                            title: "Coorstek technical ceramic materials",
+                            description: "Technical ceramic components for advanced industrial applications, produced with different technologies and dedicated materials."
+                  },
+                  {
+                            title: "STEINHAUS - Precision filtering grids and cylinders",
+                            description: "Precision filtering grids and cylinders for industrial and plant-engineering applications."
+                  },
+                  {
+                            title: "STEINHAUS - Rolled conveyor belts for furnaces",
+                            description: "Rolled conveyor belts for tunnel furnaces and high-temperature processes."
+                  },
+                  {
+                            title: "ULBRICH - Strip, flat wire, and shaped wire",
+                            description: "Ultra-thin strip, flat wire, and precision shaped wire in stainless steel, nickel, titanium, cobalt, and niobium alloys."
+                  },
+                  {
+                            title: "HARALD PIHL - Special alloys",
+                            description: "Nickel, titanium, copper, and other alloys available as tubes, rounds, flats, sheets, wire, and strip."
+                  },
+                  {
+                            title: "Wear-resistant clad plates",
+                            description: "Carbon-steel plates with a high-thickness wear-resistant chromium-carbide overlay."
+                  }
         ]
       },
       {
@@ -221,10 +409,22 @@ const localized = {
           'The goal is to balance flexibility, productivity, and process quality, with setups suitable for both automated lines and high-variability contexts.'
         ],
         products: [
-          { title: 'FELSS GROUP GmbH - Germany', description: 'Machines for precision parts from tube, bar and wire; horizontal hydraulic presses and high-precision rolling systems.', url: 'https://www.felss.com' },
-          { title: 'WEIL-TECHNOLOGY - Germany', description: 'Machines and systems for innovative forming, cutting and joining techniques, including automated turn-key lines.', url: 'https://www.weil-engineering.de' },
-          { title: 'WF MASCHINENBAU UND BLECHFORMTECHNIK - Germany', description: 'Flow forming machines for pulleys, transmission components, clutches, discs, wheels, gas cylinders and other special parts.', url: 'https://www.wf-maschinenbau.com' },
-          { title: 'LESSMANN GmbH - Germany', description: 'Industrial brushes for deburring and metal finishing, pipeline welding and special applications.', url: 'https://www.lessmann.com' }
+                  {
+                            title: "FELSS GROUP GmbH - Germany",
+                            description: "Machines for precision components through cold forming from tube, bar, and wire; horizontal presses, rolling mills, and drawing benches."
+                  },
+                  {
+                            title: "WEIL-TECHNOLOGY - Germany",
+                            description: "Automatic NC longitudinal welding and rounding machines, plus flexible integrated lines for tubular components."
+                  },
+                  {
+                            title: "WF MASCHINENBAU UND BLECHFORMTECHNIK - Germany",
+                            description: "Flow-forming machines for pulleys, transmission parts, clutches, discs, wheels, and gas cylinders."
+                  },
+                  {
+                            title: "Technical brushes - LESSMANN",
+                            description: "High-quality technical brushes for deburring, finishing, weld rework, cut back, and special industrial applications."
+                  }
         ]
       }
     ]
@@ -273,6 +473,7 @@ function getProducts(locale = 'it') {
   const lang = locale === 'en' ? 'en' : 'it';
   return localized.divisions[lang].flatMap((division) =>
     division.products.map((item, index) => {
+      const productItem = item as any;
       const id = `${division.id}-${index + 1}`;
       const details = productDetails[lang]?.[id] || {};
       return {
@@ -282,9 +483,9 @@ function getProducts(locale = 'it') {
         divisionTitle: division.title,
         divisionSubtitle: division.subtitle,
         divisionColor: division.color,
-        title: typeof item === 'string' ? item : item.title,
-        description: typeof item === 'string' ? '' : item.description,
-        url: typeof item === 'string' ? undefined : item.url,
+        title: typeof item === 'string' ? item : productItem.title,
+        description: typeof item === 'string' ? '' : productItem.description,
+        url: typeof item === 'string' ? undefined : productItem.url,
         paragraphs: details.paragraphs || [],
         images: details.images || [],
         files: details.files || []
