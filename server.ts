@@ -20,6 +20,7 @@ function registerLocaleRoutes(locale: 'it' | 'en') {
 
   app.get(prefix, (req, res) => res.render('pages/home', render(locale, 'home', { pathKey: 'home', currentPath: req.path })));
   app.get(`${prefix}/${r.azienda}`, (req, res) => res.render('pages/company', render(locale, 'azienda', { pathKey: 'azienda', currentPath: req.path })));
+  app.get(`${prefix}/${r.prodotti}`, (req, res) => res.render('pages/products', render(locale, 'prodotti', { pathKey: 'prodotti', currentPath: req.path })));
   app.get(`${prefix}/${r.divisioni}`, (req, res) => res.render('pages/divisions', render(locale, 'divisioni', { pathKey: 'divisioni', currentPath: req.path })));
   app.get(`${prefix}/${r.divisioni}/:id`, (req, res) => {
     const division = divisions.find((item) => item.id === req.params.id);

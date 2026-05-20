@@ -1,0 +1,33 @@
+<%- include('../partials/head') %><%- include('../partials/header') %>
+<main class="page">
+  <section class="page-hero">
+    <span class="eyebrow"><%= t.pages.productsEyebrow %></span>
+    <h1><%= t.pages.productsTitle %></h1>
+    <p><%= t.pages.productsSubtitle %></p>
+  </section>
+  <% divisions.forEach((division) => { %>
+    <section class="section value-section">
+      <div class="section-title-row">
+        <div>
+          <span class="eyebrow"><%= division.name %></span>
+          <h2><%= division.subtitle %></h2>
+        </div>
+        <a href="<%= url(pathFor('divisioni', { id: division.id })) %>"><%= t.common.detail %></a>
+      </div>
+      <div class="value-grid compact-list partners-grid">
+        <% division.products.forEach((item) => { %>
+          <article class="partner-card">
+            <h3><%= typeof item === 'string' ? item : item.title %></h3>
+            <% if (typeof item !== 'string' && item.description) { %>
+              <p><%= item.description %></p>
+            <% } %>
+            <% if (typeof item !== 'string' && item.url) { %>
+              <p><a href="<%= item.url %>" target="_blank" rel="noopener noreferrer"><%= item.url %></a></p>
+            <% } %>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+  <% }) %>
+</main>
+<%- include('../partials/footer') %>

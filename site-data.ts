@@ -1,13 +1,13 @@
 const routeMap = {
-  it: { home: '', azienda: 'azienda', divisioni: 'divisioni', applicazioni: 'applicazioni', partners: 'partners', contatti: 'contatti' },
-  en: { home: '', azienda: 'company', divisioni: 'divisions', applicazioni: 'applications', partners: 'partners', contatti: 'contact' }
+  it: { home: '', azienda: 'azienda', prodotti: 'prodotti', divisioni: 'divisioni', applicazioni: 'applicazioni', partners: 'partners', contatti: 'contatti' },
+  en: { home: '', azienda: 'company', prodotti: 'products', divisioni: 'divisions', applicazioni: 'applications', partners: 'partners', contatti: 'contact' }
 };
 
 const i18n = {
   it: {
     lang: 'it',
     switchLabel: 'Inglese',
-    nav: { azienda: 'Chi siamo', divisioni: 'Prodotti', applicazioni: 'Applicazioni', partners: 'Partner', contatti: 'Contatti' },
+    nav: { azienda: 'Chi siamo', prodotti: 'Prodotti', divisioni: 'Divisioni', applicazioni: 'Applicazioni', partners: 'Partner', contatti: 'Contatti' },
     home: {
       brandEyebrow: 'Euracciai',
       intro: 'Utensili speciali, materiali avanzati, macchine utensili che operano con processi innovativi e componenti speciali per diversi settori industriali.',
@@ -30,7 +30,8 @@ const i18n = {
     },
     pages: {
       applicationsEyebrow: 'Applicazioni', applicationsTitle: 'Processi e applicazioni', applicationsSubtitle: 'Applicazioni indicate nella divisione MDU',
-      productsEyebrow: 'Prodotti', productsTitle: 'Divisioni', productsSubtitle: 'MDU, MACSI e DIVMAC',
+      productsEyebrow: 'Prodotti', productsTitle: 'Prodotti', productsSubtitle: 'Prodotti e soluzioni tecniche raggruppati per divisione.',
+      divisionsEyebrow: 'Divisioni', divisionsTitle: 'Divisioni', divisionsSubtitle: 'MDU, MACSI e DIVMAC',
       partnersEyebrow: 'Partner', partnersTitle: 'Partner', partnersSubtitle: 'Collaboriamo con aziende internazionali specializzate in materiali avanzati, componenti tecnici e macchine utensili.',
       divisionEyebrow: 'Divisione', contentEyebrow: 'Contenuti', contentTitle: 'Prodotti e partner indicati per questa divisione',
       notFoundTitle: 'Pagina non trovata.', notFoundText: 'La pagina richiesta non esiste o è stata spostata.'
@@ -40,7 +41,7 @@ const i18n = {
   en: {
     lang: 'en',
     switchLabel: 'Italiano',
-    nav: { azienda: 'Company', divisioni: 'Products', applicazioni: 'Applications', partners: 'Partners', contatti: 'Contact' },
+    nav: { azienda: 'Company', prodotti: 'Products', divisioni: 'Divisions', applicazioni: 'Applications', partners: 'Partners', contatti: 'Contact' },
     home: {
       brandEyebrow: 'Euracciai',
       intro: 'Special tools, advanced materials, machine tools with innovative processes, and special components for industrial sectors.',
@@ -63,7 +64,8 @@ const i18n = {
     },
     pages: {
       applicationsEyebrow: 'Applications', applicationsTitle: 'Processes and applications', applicationsSubtitle: 'Applications referenced in the MDU division',
-      productsEyebrow: 'Products', productsTitle: 'Divisions', productsSubtitle: 'MDU, MACSI and DIVMAC',
+      productsEyebrow: 'Products', productsTitle: 'Products', productsSubtitle: 'Technical products and solutions grouped by division.',
+      divisionsEyebrow: 'Divisions', divisionsTitle: 'Divisions', divisionsSubtitle: 'MDU, MACSI and DIVMAC',
       partnersEyebrow: 'Partners', partnersTitle: 'Partners', partnersSubtitle: 'We cooperate with international companies specialized in advanced materials, technical components, and machine tools.',
       divisionEyebrow: 'Division', contentEyebrow: 'Contents', contentTitle: 'Products and partners listed for this division',
       notFoundTitle: 'Page not found.', notFoundText: 'The requested page does not exist or has been moved.'

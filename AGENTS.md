@@ -42,6 +42,8 @@
   - `/it/...`
   - `/en/...`
   - `/` redirects to `/it`
+- `Prodotti` is a dedicated catalog page (`prodotti` / `products`) grouped by division.
+- `Divisioni` remains a separate structural page (`divisioni` / `divisions`) and division detail routes live under it.
 - Static mode uses relative links everywhere.
 - Helpers in render context:
   - `url(...)` for internal page links

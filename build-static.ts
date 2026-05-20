@@ -36,6 +36,7 @@ function localeRoutes(locale: Locale) {
   return [
     { relPath: `${locale}/index.html`, template: 'pages/home', page: 'home', pathKey: 'home', currentPath: `/${locale}` },
     { relPath: `${locale}/${r.azienda}/index.html`, template: 'pages/company', page: 'azienda', pathKey: 'azienda', currentPath: `/${locale}/${r.azienda}` },
+    { relPath: `${locale}/${r.prodotti}/index.html`, template: 'pages/products', page: 'prodotti', pathKey: 'prodotti', currentPath: `/${locale}/${r.prodotti}` },
     { relPath: `${locale}/${r.divisioni}/index.html`, template: 'pages/divisions', page: 'divisioni', pathKey: 'divisioni', currentPath: `/${locale}/${r.divisioni}` },
     { relPath: `${locale}/${r.applicazioni}/index.html`, template: 'pages/applications', page: 'applicazioni', pathKey: 'applicazioni', currentPath: `/${locale}/${r.applicazioni}` },
     { relPath: `${locale}/${r.partners}/index.html`, template: 'pages/partners', page: 'partners', pathKey: 'partners', currentPath: `/${locale}/${r.partners}` },
