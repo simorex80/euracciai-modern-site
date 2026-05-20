@@ -1,3 +1,5 @@
+import { productDetails } from './product-details';
+
 const routeMap = {
   it: { home: '', azienda: 'azienda', prodotti: 'prodotti', divisioni: 'divisioni', applicazioni: 'applicazioni', partners: 'partners', contatti: 'contatti' },
   en: { home: '', azienda: 'company', prodotti: 'products', divisioni: 'divisions', applicazioni: 'applications', partners: 'partners', contatti: 'contact' }
@@ -154,6 +156,7 @@ const localized = {
         products: [
           { title: 'COORSTEK - USA', description: 'Produttore di riferimento nelle ceramiche tecniche per applicazioni industriali avanzate.', url: 'https://www.coorstek.com' },
           { title: 'STEINHAUS - Germania', description: 'Griglie e cilindri filtranti di precisione; nastri trasportatori laminati per forni a tunnel.', url: 'https://www.steinhaus-gmbh.de' },
+          { title: 'STEINHAUS - Germania - Nastri trasportatori per forni', description: 'Nastri trasportatori laminati per forni a tunnel e applicazioni industriali ad alta temperatura.', url: 'https://www.steinhaus-gmbh.de' },
           { title: 'ULBRICH - USA', description: 'Produzione e distribuzione di nastri, fogli e fili di acciai inox e metalli speciali.', url: 'https://www.ulbrich.com' },
           { title: 'HARALD PIHL - Svezia', description: 'Ampia disponibilità di leghe speciali e titanio per esigenze industriali ad alta specifica.', url: 'https://www.haraldpihl.com' },
           { title: 'ABREMA - Grecia', description: 'Componenti e materiali speciali per applicazioni tecniche e impiantistiche.' }
@@ -206,6 +209,7 @@ const localized = {
         products: [
           { title: 'COORSTEK - USA', description: 'Leading manufacturer of technical ceramics for advanced industrial applications.', url: 'https://www.coorstek.com' },
           { title: 'STEINHAUS - Germany', description: 'Precision filtering grids and cylinders; laminated conveyor belts for tunnel furnaces.', url: 'https://www.steinhaus-gmbh.de' },
+          { title: 'STEINHAUS - Germany - Conveyor belts for ovens', description: 'Rolled conveyor belts for tunnel ovens and high-temperature industrial applications.', url: 'https://www.steinhaus-gmbh.de' },
           { title: 'ULBRICH - USA', description: 'Production and distribution of strips, sheets, and wires in stainless steels and special metals.', url: 'https://www.ulbrich.com' },
           { title: 'HARALD PIHL - Sweden', description: 'Broad availability of special alloys and titanium for critical industrial needs.', url: 'https://www.haraldpihl.com' },
           { title: 'ABREMA - Greece', description: 'Special components and materials for technical and plant-engineering applications.' }
@@ -282,17 +286,24 @@ function buildPathFor(locale) {
 function getProducts(locale = 'it') {
   const lang = locale === 'en' ? 'en' : 'it';
   return localized.divisions[lang].flatMap((division) =>
-    division.products.map((item, index) => ({
-      id: `${division.id}-${index + 1}`,
-      divisionId: division.id,
-      divisionName: division.name,
-      divisionTitle: division.title,
-      divisionSubtitle: division.subtitle,
-      divisionColor: division.color,
-      title: typeof item === 'string' ? item : item.title,
-      description: typeof item === 'string' ? '' : item.description,
-      url: typeof item === 'string' ? undefined : item.url
-    }))
+    division.products.map((item, index) => {
+      const id = `${division.id}-${index + 1}`;
+      const details = productDetails[lang]?.[id] || {};
+      return {
+        id,
+        divisionId: division.id,
+        divisionName: division.name,
+        divisionTitle: division.title,
+        divisionSubtitle: division.subtitle,
+        divisionColor: division.color,
+        title: typeof item === 'string' ? item : item.title,
+        description: typeof item === 'string' ? '' : item.description,
+        url: typeof item === 'string' ? undefined : item.url,
+        paragraphs: details.paragraphs || [],
+        images: details.images || [],
+        files: details.files || []
+      };
+    })
   );
 }
 

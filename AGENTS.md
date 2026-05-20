@@ -79,6 +79,8 @@
 
 ## Content and Data Conventions
 - Company/division/applications/partners copy is stored in `site-data.ts`.
+- Imported long-form product sheet copy, product images, and product attachments are stored in `product-details.ts`.
+- Import helper scripts live in `scripts/`; they can regenerate product details from cached original HTML when needed.
 - Keep Italian copy in Italian and English copy in English; avoid mixed-language leftovers such as `Italy` in Italian pages.
 - Email addresses shown in templates should be clickable `mailto:` links.
 - Division detail page content:

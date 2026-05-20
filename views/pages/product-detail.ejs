@@ -14,8 +14,27 @@
     </div>
     <article class="partner-card">
       <h3><%= product.title %></h3>
-      <% if (product.description) { %>
+      <% if (product.description && (!product.paragraphs || !product.paragraphs.length)) { %>
         <p><%= product.description %></p>
+      <% } %>
+      <% if (product.paragraphs && product.paragraphs.length) { %>
+        <% product.paragraphs.forEach((paragraph) => { %>
+          <p><%= paragraph %></p>
+        <% }) %>
+      <% } %>
+      <% if (product.images && product.images.length) { %>
+        <div class="product-gallery">
+          <% product.images.forEach((image) => { %>
+            <img src="<%= asset(image) %>" alt="<%= product.title %>">
+          <% }) %>
+        </div>
+      <% } %>
+      <% if (product.files && product.files.length) { %>
+        <div class="product-files">
+          <% product.files.forEach((file) => { %>
+            <a href="<%= asset(file.href) %>" target="_blank" rel="noopener noreferrer"><%= file.label %></a>
+          <% }) %>
+        </div>
       <% } %>
       <% if (product.url) { %>
         <p><a href="<%= product.url %>" target="_blank" rel="noopener noreferrer"><%= product.url %></a></p>
