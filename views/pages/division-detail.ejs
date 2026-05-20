@@ -24,9 +24,6 @@
           <% if (typeof item !== 'string' && item.description) { %>
             <p><%= item.description %></p>
           <% } %>
-          <% if (typeof item !== 'string' && item.url) { %>
-            <p><a href="<%= item.url %>" target="_blank" rel="noopener noreferrer"><%= item.url %></a></p>
-          <% } %>
           <p><a href="<%= url(pathFor('prodotti', { id: productId(division.id, index) })) %>"><%= t.common.detail %></a></p>
         </div>
       <% }) %>
