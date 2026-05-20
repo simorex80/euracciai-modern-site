@@ -31,6 +31,7 @@ const i18n = {
     pages: {
       applicationsEyebrow: 'Applicazioni', applicationsTitle: 'Processi e applicazioni', applicationsSubtitle: 'Applicazioni indicate nella divisione MDU',
       productsEyebrow: 'Prodotti', productsTitle: 'Prodotti', productsSubtitle: 'Prodotti e soluzioni tecniche raggruppati per divisione.',
+      productEyebrow: 'Scheda prodotto', productBack: 'Torna ai prodotti', relatedDivision: 'Divisione di riferimento',
       divisionsEyebrow: 'Divisioni', divisionsTitle: 'Divisioni', divisionsSubtitle: 'MDU, MACSI e DIVMAC',
       partnersEyebrow: 'Partner', partnersTitle: 'Partner', partnersSubtitle: 'Collaboriamo con aziende internazionali specializzate in materiali avanzati, componenti tecnici e macchine utensili.',
       divisionEyebrow: 'Divisione', contentEyebrow: 'Contenuti', contentTitle: 'Prodotti e partner indicati per questa divisione',
@@ -65,6 +66,7 @@ const i18n = {
     pages: {
       applicationsEyebrow: 'Applications', applicationsTitle: 'Processes and applications', applicationsSubtitle: 'Applications referenced in the MDU division',
       productsEyebrow: 'Products', productsTitle: 'Products', productsSubtitle: 'Technical products and solutions grouped by division.',
+      productEyebrow: 'Product sheet', productBack: 'Back to products', relatedDivision: 'Related division',
       divisionsEyebrow: 'Divisions', divisionsTitle: 'Divisions', divisionsSubtitle: 'MDU, MACSI and DIVMAC',
       partnersEyebrow: 'Partners', partnersTitle: 'Partners', partnersSubtitle: 'We cooperate with international companies specialized in advanced materials, technical components, and machine tools.',
       divisionEyebrow: 'Division', contentEyebrow: 'Contents', contentTitle: 'Products and partners listed for this division',
@@ -272,8 +274,30 @@ function buildPathFor(locale) {
     if (slug === undefined) return `/${locale}`;
     let url = slug ? `/${locale}/${slug}` : `/${locale}`;
     if (key === 'divisioni' && params.id) url += `/${params.id}`;
+    if (key === 'prodotti' && params.id) url += `/${params.id}`;
     return url;
   };
+}
+
+function getProducts(locale = 'it') {
+  const lang = locale === 'en' ? 'en' : 'it';
+  return localized.divisions[lang].flatMap((division) =>
+    division.products.map((item, index) => ({
+      id: `${division.id}-${index + 1}`,
+      divisionId: division.id,
+      divisionName: division.name,
+      divisionTitle: division.title,
+      divisionSubtitle: division.subtitle,
+      divisionColor: division.color,
+      title: typeof item === 'string' ? item : item.title,
+      description: typeof item === 'string' ? '' : item.description,
+      url: typeof item === 'string' ? undefined : item.url
+    }))
+  );
+}
+
+function findProduct(locale = 'it', id: string) {
+  return getProducts(locale).find((product) => product.id === id);
 }
 
 function routeToStaticFilePath(routePath) {
@@ -310,10 +334,12 @@ function render(locale = 'it', page: string, data: any = {}) {
   };
 
   const selectedDivisions = localized.divisions[lang];
+  const selectedProducts = getProducts(lang);
   let division = data.division;
   if (division && division.id) {
     division = selectedDivisions.find((d) => d.id === division.id) || division;
   }
+  const product = data.product || (pathKey === 'prodotti' && pathParams.id ? findProduct(lang, pathParams.id) : undefined);
 
   return {
     locale: lang,
@@ -321,6 +347,8 @@ function render(locale = 'it', page: string, data: any = {}) {
     site: { ...site, directions: site.directions[lang] },
     company: localized.company[lang],
     divisions: selectedDivisions,
+    products: selectedProducts,
+    productId: (divisionId: string, index: number) => `${divisionId}-${index + 1}`,
     applications: localized.applications[lang],
     partners: localized.partners[lang],
     page,
@@ -330,10 +358,11 @@ function render(locale = 'it', page: string, data: any = {}) {
     switchPath: buildPathFor(switchLocale)(pathKey, pathParams),
     localePaths,
     ...data,
-    division
+    division,
+    product
   };
 }
 
 const divisions = localized.divisions.it;
 
-export { routeMap, divisions, render };
+export { routeMap, divisions, findProduct, getProducts, render };

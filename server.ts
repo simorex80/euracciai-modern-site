@@ -1,7 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 import path from 'path';
-import { divisions, render, routeMap } from './site-data';
+import { divisions, findProduct, render, routeMap } from './site-data';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +21,11 @@ function registerLocaleRoutes(locale: 'it' | 'en') {
   app.get(prefix, (req, res) => res.render('pages/home', render(locale, 'home', { pathKey: 'home', currentPath: req.path })));
   app.get(`${prefix}/${r.azienda}`, (req, res) => res.render('pages/company', render(locale, 'azienda', { pathKey: 'azienda', currentPath: req.path })));
   app.get(`${prefix}/${r.prodotti}`, (req, res) => res.render('pages/products', render(locale, 'prodotti', { pathKey: 'prodotti', currentPath: req.path })));
+  app.get(`${prefix}/${r.prodotti}/:id`, (req, res) => {
+    const product = findProduct(locale, req.params.id);
+    if (!product) return res.status(404).render('pages/404', render(locale, '404', { pathKey: 'home', currentPath: req.path }));
+    return res.render('pages/product-detail', render(locale, 'prodotti', { product, pathKey: 'prodotti', pathParams: { id: product.id }, currentPath: req.path }));
+  });
   app.get(`${prefix}/${r.divisioni}`, (req, res) => res.render('pages/divisions', render(locale, 'divisioni', { pathKey: 'divisioni', currentPath: req.path })));
   app.get(`${prefix}/${r.divisioni}/:id`, (req, res) => {
     const division = divisions.find((item) => item.id === req.params.id);

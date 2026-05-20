@@ -15,7 +15,7 @@
         <a href="<%= url(pathFor('divisioni', { id: division.id })) %>"><%= t.common.detail %></a>
       </div>
       <div class="value-grid compact-list partners-grid">
-        <% division.products.forEach((item) => { %>
+        <% division.products.forEach((item, index) => { %>
           <article class="partner-card">
             <h3><%= typeof item === 'string' ? item : item.title %></h3>
             <% if (typeof item !== 'string' && item.description) { %>
@@ -24,6 +24,7 @@
             <% if (typeof item !== 'string' && item.url) { %>
               <p><a href="<%= item.url %>" target="_blank" rel="noopener noreferrer"><%= item.url %></a></p>
             <% } %>
+            <p><a href="<%= url(pathFor('prodotti', { id: productId(division.id, index) })) %>"><%= t.common.detail %></a></p>
           </article>
         <% }) %>
       </div>

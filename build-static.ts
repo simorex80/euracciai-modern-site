@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import ejs from 'ejs';
-import { divisions, render, routeMap } from './site-data';
+import { divisions, getProducts, render, routeMap } from './site-data';
 
 const ROOT = process.cwd();
 const VIEWS_DIR = path.join(ROOT, 'views');
@@ -62,6 +62,15 @@ async function buildStatic() {
         render(locale, 'divisioni', { division, pathKey: 'divisioni', pathParams: { id: division.id }, currentPath: `/${locale}/${divisionSlug}/${division.id}`, staticMode: true })
       );
       await writeHtml(path.join(DIST_DIR, locale, divisionSlug, division.id, 'index.html'), html);
+    }
+
+    const productsSlug = routeMap[locale].prodotti;
+    for (const product of getProducts(locale)) {
+      const html = await renderPage(
+        'pages/product-detail',
+        render(locale, 'prodotti', { product, pathKey: 'prodotti', pathParams: { id: product.id }, currentPath: `/${locale}/${productsSlug}/${product.id}`, staticMode: true })
+      );
+      await writeHtml(path.join(DIST_DIR, locale, productsSlug, product.id, 'index.html'), html);
     }
 
     const notFound = await renderPage('pages/404', render(locale, '404', { pathKey: 'home', currentPath: `/${locale}/404`, staticMode: true }));

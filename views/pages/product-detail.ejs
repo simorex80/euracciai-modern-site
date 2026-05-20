@@ -1,0 +1,27 @@
+<%- include('../partials/head') %><%- include('../partials/header') %>
+<main class="page">
+  <section class="page-hero">
+    <span class="eyebrow"><%= t.pages.productEyebrow %></span>
+    <h1><%= product.title %></h1>
+    <p><%= product.divisionName %> - <%= product.divisionSubtitle %></p>
+  </section>
+  <section class="section split">
+    <div>
+      <span class="eyebrow"><%= t.pages.relatedDivision %></span>
+      <h2 class="accent-<%= product.divisionColor %>"><%= product.divisionTitle %></h2>
+      <p><%= product.divisionSubtitle %></p>
+      <a class="btn btn-primary" href="<%= url(pathFor('divisioni', { id: product.divisionId })) %>"><%= t.common.detail %></a>
+    </div>
+    <article class="partner-card">
+      <h3><%= product.title %></h3>
+      <% if (product.description) { %>
+        <p><%= product.description %></p>
+      <% } %>
+      <% if (product.url) { %>
+        <p><a href="<%= product.url %>" target="_blank" rel="noopener noreferrer"><%= product.url %></a></p>
+      <% } %>
+      <p><a href="<%= url(pathFor('prodotti')) %>"><%= t.pages.productBack %></a></p>
+    </article>
+  </section>
+</main>
+<%- include('../partials/footer') %>

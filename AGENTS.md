@@ -43,6 +43,8 @@
   - `/en/...`
   - `/` redirects to `/it`
 - `Prodotti` is a dedicated catalog page (`prodotti` / `products`) grouped by division.
+- Single product sheets are generated under `prodotti/:id` / `products/:id`.
+- Product ids are currently derived from division id + position (for example `mdu-1`, `macsi-2`); keep them stable or migrate carefully if adding explicit slugs later.
 - `Divisioni` remains a separate structural page (`divisioni` / `divisions`) and division detail routes live under it.
 - Static mode uses relative links everywhere.
 - Helpers in render context:
