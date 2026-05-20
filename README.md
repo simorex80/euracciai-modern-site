@@ -53,13 +53,15 @@ euracciai-modern-site/
     pages/
       home.ejs
       company.ejs
+      products.ejs
+      product-detail.ejs
       divisions.ejs
       division-detail.ejs
-      applications.ejs
       partners.ejs
       contact.ejs
       404.ejs
   site-data.ts
+  product-details.ts
   build-static.ts
   server.ts
   tsconfig.json
@@ -72,18 +74,20 @@ euracciai-modern-site/
 - Italiano:
 - `GET /it`
 - `GET /it/azienda`
+- `GET /it/prodotti`
+- `GET /it/prodotti/:id`
 - `GET /it/divisioni`
 - `GET /it/divisioni/:id`
-- `GET /it/applicazioni`
 - `GET /it/partners`
 - `GET /it/contatti`
 - `POST /it/contatti`
 - Inglese:
 - `GET /en`
 - `GET /en/company`
+- `GET /en/products`
+- `GET /en/products/:id`
 - `GET /en/divisions`
 - `GET /en/divisions/:id`
-- `GET /en/applications`
 - `GET /en/partners`
 - `GET /en/contact`
 - `POST /en/contact`
@@ -103,13 +107,15 @@ npm start
 
 ## Contenuti Dati
 
-I dati principali (anagrafica aziendale, divisioni, applicazioni, partners) sono definiti in `site-data.ts`:
+I dati principali (anagrafica aziendale, divisioni, prodotti sintetici, partner e internazionalizzazione) sono definiti in `site-data.ts`:
 
 - `site`
 - `company`
 - `divisions`
-- `applications`
 - `partners`
+- `i18n`
+
+Le schede prodotto complete, con testi lunghi e immagini importate dal sito originale, sono definite in `product-details.ts`.
 
 Per aggiornare testi/contatti/prodotti è sufficiente modificare questi oggetti.
 
@@ -147,7 +153,6 @@ Pubblica direttamente il contenuto di `dist/`.
 - Abilitare una CSP esplicita compatibile con font/CDN usati.
 - Implementare invio reale del form contatti (SMTP/API) con validazione server-side.
 - Aggiungere test automatici (unit/integration) e script `npm test`.
-- Completare contenuti pagina partners.
 
 ## Deploy
 

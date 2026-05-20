@@ -32,7 +32,6 @@ function registerLocaleRoutes(locale: 'it' | 'en') {
     if (!division) return res.status(404).render('pages/404', render(locale, '404', { pathKey: 'home', currentPath: req.path }));
     return res.render('pages/division-detail', render(locale, 'divisioni', { division, pathKey: 'divisioni', pathParams: { id: division.id }, currentPath: req.path }));
   });
-  app.get(`${prefix}/${r.applicazioni}`, (req, res) => res.render('pages/applications', render(locale, 'applicazioni', { pathKey: 'applicazioni', currentPath: req.path })));
   app.get(`${prefix}/${r.partners}`, (req, res) => res.render('pages/partners', render(locale, 'partners', { pathKey: 'partners', currentPath: req.path })));
   app.get(`${prefix}/${r.contatti}`, (req, res) => res.render('pages/contact', render(locale, 'contatti', { pathKey: 'contatti', currentPath: req.path })));
   app.post(`${prefix}/${r.contatti}`, (req, res) => res.render('pages/contact', render(locale, 'contatti', { sent: true, pathKey: 'contatti', currentPath: req.path })));

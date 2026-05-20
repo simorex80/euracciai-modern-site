@@ -8,8 +8,8 @@
   </a>
   <nav class="main-nav" aria-label="<%= t.common.mainNavAria %>">
     <a class="<%= page === 'azienda' ? 'active' : '' %>" href="<%= url(pathFor('azienda')) %>"><%= t.nav.azienda %></a>
+    <a class="<%= page === 'divisioni' ? 'active' : '' %>" href="<%= url(pathFor('divisioni')) %>"><%= t.nav.divisioni %></a>
     <a class="<%= page === 'prodotti' ? 'active' : '' %>" href="<%= url(pathFor('prodotti')) %>"><%= t.nav.prodotti %></a>
-    <a class="<%= page === 'applicazioni' ? 'active' : '' %>" href="<%= url(pathFor('applicazioni')) %>"><%= t.nav.applicazioni %></a>
     <a class="<%= page === 'partners' ? 'active' : '' %>" href="<%= url(pathFor('partners')) %>"><%= t.nav.partners %></a>
     <a class="<%= page === 'contatti' ? 'active' : '' %>" href="<%= url(pathFor('contatti')) %>"><%= t.nav.contatti %></a>
   </nav>
@@ -24,8 +24,8 @@
 </header>
 <nav id="mobile-nav" class="mobile-nav" aria-label="<%= t.common.mobileMenuLabel %>" hidden>
   <a class="<%= page === 'azienda' ? 'active' : '' %>" href="<%= url(pathFor('azienda')) %>"><%= t.nav.azienda %></a>
+  <a class="<%= page === 'divisioni' ? 'active' : '' %>" href="<%= url(pathFor('divisioni')) %>"><%= t.nav.divisioni %></a>
   <a class="<%= page === 'prodotti' ? 'active' : '' %>" href="<%= url(pathFor('prodotti')) %>"><%= t.nav.prodotti %></a>
-  <a class="<%= page === 'applicazioni' ? 'active' : '' %>" href="<%= url(pathFor('applicazioni')) %>"><%= t.nav.applicazioni %></a>
   <a class="<%= page === 'partners' ? 'active' : '' %>" href="<%= url(pathFor('partners')) %>"><%= t.nav.partners %></a>
   <a class="<%= page === 'contatti' ? 'active' : '' %>" href="<%= url(pathFor('contatti')) %>"><%= t.nav.contatti %></a>
   <div class="mobile-lang-switch" aria-label="<%= t.common.langSelectorAria %>">

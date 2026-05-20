@@ -1,15 +1,15 @@
 import { productDetails } from './product-details';
 
 const routeMap = {
-  it: { home: '', azienda: 'azienda', prodotti: 'prodotti', divisioni: 'divisioni', applicazioni: 'applicazioni', partners: 'partners', contatti: 'contatti' },
-  en: { home: '', azienda: 'company', prodotti: 'products', divisioni: 'divisions', applicazioni: 'applications', partners: 'partners', contatti: 'contact' }
+  it: { home: '', azienda: 'azienda', prodotti: 'prodotti', divisioni: 'divisioni', partners: 'partners', contatti: 'contatti' },
+  en: { home: '', azienda: 'company', prodotti: 'products', divisioni: 'divisions', partners: 'partners', contatti: 'contact' }
 };
 
 const i18n = {
   it: {
     lang: 'it',
     switchLabel: 'Inglese',
-    nav: { azienda: 'Chi siamo', prodotti: 'Prodotti', divisioni: 'Divisioni', applicazioni: 'Applicazioni', partners: 'Partner', contatti: 'Contatti' },
+    nav: { azienda: 'Chi siamo', prodotti: 'Prodotti', divisioni: 'Divisioni', partners: 'Partner', contatti: 'Contatti' },
     home: {
       brandEyebrow: 'Euracciai',
       intro: 'Utensili speciali, materiali avanzati, macchine utensili che operano con processi innovativi e componenti speciali per diversi settori industriali.',
@@ -31,7 +31,6 @@ const i18n = {
       mobileMenuLabel: 'Menu', openMenuLabel: 'Apri menu', closeMenuLabel: 'Chiudi menu'
     },
     pages: {
-      applicationsEyebrow: 'Applicazioni', applicationsTitle: 'Processi e applicazioni', applicationsSubtitle: 'Applicazioni indicate nella divisione MDU',
       productsEyebrow: 'Prodotti', productsTitle: 'Prodotti', productsSubtitle: 'Prodotti e soluzioni tecniche raggruppati per divisione.',
       productEyebrow: 'Scheda prodotto', productBack: 'Torna ai prodotti', relatedDivision: 'Divisione di riferimento',
       divisionsEyebrow: 'Divisioni', divisionsTitle: 'Divisioni', divisionsSubtitle: 'MDU, MACSI e DIVMAC',
@@ -44,7 +43,7 @@ const i18n = {
   en: {
     lang: 'en',
     switchLabel: 'Italiano',
-    nav: { azienda: 'Company', prodotti: 'Products', divisioni: 'Divisions', applicazioni: 'Applications', partners: 'Partners', contatti: 'Contact' },
+    nav: { azienda: 'Company', prodotti: 'Products', divisioni: 'Divisions', partners: 'Partners', contatti: 'Contact' },
     home: {
       brandEyebrow: 'Euracciai',
       intro: 'Special tools, advanced materials, machine tools with innovative processes, and special components for industrial sectors.',
@@ -66,7 +65,6 @@ const i18n = {
       mobileMenuLabel: 'Menu', openMenuLabel: 'Open menu', closeMenuLabel: 'Close menu'
     },
     pages: {
-      applicationsEyebrow: 'Applications', applicationsTitle: 'Processes and applications', applicationsSubtitle: 'Applications referenced in the MDU division',
       productsEyebrow: 'Products', productsTitle: 'Products', productsSubtitle: 'Technical products and solutions grouped by division.',
       productEyebrow: 'Product sheet', productBack: 'Back to products', relatedDivision: 'Related division',
       divisionsEyebrow: 'Divisions', divisionsTitle: 'Divisions', divisionsSubtitle: 'MDU, MACSI and DIVMAC',
@@ -256,18 +254,6 @@ const localized = {
       { division: 'DIVMAC', name: 'WF MASCHINENBAU', country: 'Germany', description: 'Flow-forming machines for transmission components and sheet deformation.', url: 'https://www.wf-maschinenbau.com' },
       { division: 'DIVMAC', name: 'LESSMANN', country: 'Germany', description: 'Special industrial brushes for finishing, deburring, and automated processes.', url: 'https://www.lessmann.com' }
     ]
-  },
-  applications: {
-    it: [
-      'Asportazione di truciolo', 'Stampaggio', 'Scordonatura di tubi', 'Marcatura di tubi e componenti meccanici',
-      'Saldatura a resistenza', 'Sabbiatura con materiali abrasivi', "Applicazioni che richiedono resistenza all'usura e alle sollecitazioni meccaniche",
-      'Applicazioni che richiedono bassi attriti, elevate durezze o elevata conduttività'
-    ],
-    en: [
-      'Chip removal machining', 'Forming', 'Tube scarfing', 'Tube and mechanical component marking',
-      'Resistance welding', 'Abrasive blasting', 'Applications requiring wear resistance and mechanical strength',
-      'Applications requiring low friction, high hardness, or high conductivity'
-    ]
   }
 };
 
@@ -360,7 +346,6 @@ function render(locale = 'it', page: string, data: any = {}) {
     divisions: selectedDivisions,
     products: selectedProducts,
     productId: (divisionId: string, index: number) => `${divisionId}-${index + 1}`,
-    applications: localized.applications[lang],
     partners: localized.partners[lang],
     page,
     pathFor,
