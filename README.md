@@ -1,23 +1,24 @@
 # EURACCIAI Modern Site
 
-Sito web Node.js/Express con template EJS, costruito a partire da contenuti pubblici di `euracciai.it` e con layout moderno responsive.
+Sito corporate bilingue (`it` / `en`) realizzato con Express, EJS e TypeScript. Può essere eseguito come server Node.js oppure esportato integralmente come sito statico, con link relativi compatibili con GitHub Pages e hosting in sottocartella.
 
 ## Requisiti
 
-- Node.js `>= 18`
+- Node.js `>= 24`
 - npm (incluso con Node.js)
 
 ## Installazione
 
 ```bash
-npm install
+npm ci
 ```
 
 ## Avvio
 
-- Produzione locale:
+- Compilazione e avvio del server:
 
 ```bash
+npm run build
 npm start
 ```
 
@@ -29,13 +30,17 @@ npm run dev
 
 Il server parte su `http://localhost:3000` (oppure sulla porta definita da `PORT`).
 
-## Stack Tecnologico
+## Comandi
 
-- `express`: server HTTP e routing
-- `ejs`: rendering lato server delle viste
-- `helmet`: hardening header HTTP
-- `typescript`: tipizzazione e compilazione
-- `tsx` (dev): avvio in sviluppo con reload automatico per file TypeScript
+| Comando | Scopo |
+| --- | --- |
+| `npm run dev` | Server di sviluppo con reload automatico |
+| `npm run typecheck` | Controllo TypeScript strict senza generare file |
+| `npm run build` | Compilazione in `build/` |
+| `npm start` | Avvio del server compilato |
+| `npm run build:static` | Generazione completa di `dist/` |
+| `npm run check:static` | Verifica pagine, locale, link e asset dell’export esistente |
+| `npm run check` | QA completo: tipi, export statico e validazione |
 
 ## Struttura Progetto
 
@@ -44,6 +49,7 @@ euracciai-modern-site/
   public/
     css/styles.css
     js/main.js
+    js/normalize-path.js
     img/*.png
   views/
     partials/
@@ -63,6 +69,7 @@ euracciai-modern-site/
   site-data.ts
   product-details.ts
   build-static.ts
+  scripts/check-static-build.js
   server.ts
   tsconfig.json
   package.json
@@ -71,26 +78,8 @@ euracciai-modern-site/
 ## Rotte Disponibili
 
 - `GET /` - Redirect a `/it`
-- Italiano:
-- `GET /it`
-- `GET /it/azienda`
-- `GET /it/prodotti`
-- `GET /it/prodotti/:id`
-- `GET /it/divisioni`
-- `GET /it/divisioni/:id`
-- `GET /it/partners`
-- `GET /it/contatti`
-- `POST /it/contatti`
-- Inglese:
-- `GET /en`
-- `GET /en/company`
-- `GET /en/products`
-- `GET /en/products/:id`
-- `GET /en/divisions`
-- `GET /en/divisions/:id`
-- `GET /en/partners`
-- `GET /en/contact`
-- `POST /en/contact`
+- Italiano: `/it`, `/it/azienda`, `/it/prodotti`, `/it/prodotti/:id`, `/it/divisioni`, `/it/divisioni/:id`, `/it/partners`, `/it/contatti`
+- Inglese: `/en`, `/en/company`, `/en/products`, `/en/products/:id`, `/en/divisions`, `/en/divisions/:id`, `/en/partners`, `/en/contact`
 
 ## Configurazione
 
@@ -127,10 +116,10 @@ Per aggiornare testi/contatti/prodotti è sufficiente modificare questi oggetti.
 
 ## Build Statica
 
-Per pubblicare su un server statico:
+Per generare e verificare ciò che verrà pubblicato:
 
 ```bash
-npm run build:static
+npm run check
 ```
 
 Viene generata la cartella `dist/` con:
@@ -140,24 +129,33 @@ Viene generata la cartella `dist/` con:
 - asset statici in `dist/css`, `dist/js`, `dist/img`
 - `dist/index.html` (redirect) e `dist/404.html`
 
-Pubblica direttamente il contenuto di `dist/`.
+Pubblica direttamente il contenuto di `dist/`. La cartella è generata e non deve essere modificata o versionata.
 
 ## Sicurezza e Note Tecniche
 
-- `helmet` è attivo.
-- Al momento la Content Security Policy è disabilitata (`contentSecurityPolicy: false`).
-- `POST /contatti` non invia email e non persiste dati: mostra soltanto la pagina con stato di invio.
+- `helmet` applica gli header di sicurezza, inclusa una Content Security Policy senza script inline nel rendering dinamico.
+- Gli asset dinamici usano ETag e cache browser di un’ora.
+- Il frontend non dipende da font o script di terze parti.
+- La pagina contatti espone recapiti e link `mailto:`; non esiste un form di invio o persistenza dati.
+- TypeScript usa modalità `strict` e `noUncheckedIndexedAccess`.
+- Il target TypeScript è `ES2024`, coerente con il requisito minimo Node.js 24.
 
-## Miglioramenti Consigliati
+## Aggiornamento Dipendenze
 
-- Abilitare una CSP esplicita compatibile con font/CDN usati.
-- Implementare invio reale del form contatti (SMTP/API) con validazione server-side.
-- Aggiungere test automatici (unit/integration) e script `npm test`.
+Prima di un aggiornamento, controllare versioni e vulnerabilità:
+
+```bash
+npm outdated
+npm audit
+```
+
+Dopo l’aggiornamento rigenerare `package-lock.json` e lanciare `npm run check`. Gli aggiornamenti major di Express/EJS/Helmet/TypeScript vanno sempre validati sia in modalità dinamica sia statica.
 
 ## Deploy
 
 - Hosting Node.js dinamico: usa `npm start`
-- Hosting statico (Netlify, Vercel static, GitHub Pages, Nginx, Apache): usa `npm run build:static` e carica `dist/`
+- Hosting statico (GitHub Pages, Netlify, Nginx, Apache): usa `npm run check` e pubblica `dist/`
+- GitHub Pages: il workflow in `.github/workflows/deploy-pages.yml` installa con `npm ci`, esegue il QA completo e pubblica l’artefatto
 
 ## Licenza
 

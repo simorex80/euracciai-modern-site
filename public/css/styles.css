@@ -22,3 +22,5 @@
 .brand-logo{width:72px;max-width:24vw;height:auto}.footer-logo{width:86px}.brand-copy{display:block}.brand-copy strong{display:block}.brand-copy small{display:block}@media (max-width:620px){.brand-logo{width:58px;max-width:20vw}.footer-logo{width:72px}.brand-copy strong{font-size:18px}.brand-copy small{font-size:10px}}
 
 .product-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.product-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--border);background:#f8fafc}.product-files{display:grid;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}.product-files a{color:var(--blue);font-weight:800;word-break:break-word}@media (max-width:620px){.product-gallery{grid-template-columns:1fr}}
+
+:focus-visible{outline:3px solid #66a6ff;outline-offset:3px}.mobile-nav-open{overflow:hidden}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.partner-card{transition:none}}

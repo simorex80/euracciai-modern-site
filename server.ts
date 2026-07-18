@@ -7,9 +7,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const ROOT = process.cwd();
 
-app.use(helmet({ contentSecurityPolicy: false }));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(ROOT, 'public')));
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      'font-src': ["'self'"],
+      'frame-ancestors': ["'none'"],
+      'style-src': ["'self'"],
+      'upgrade-insecure-requests': null
+    }
+  }
+}));
+app.use(express.static(path.join(ROOT, 'public'), { etag: true, maxAge: '1h' }));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(ROOT, 'views'));
@@ -34,14 +42,16 @@ function registerLocaleRoutes(locale: 'it' | 'en') {
   });
   app.get(`${prefix}/${r.partners}`, (req, res) => res.render('pages/partners', render(locale, 'partners', { pathKey: 'partners', currentPath: req.path })));
   app.get(`${prefix}/${r.contatti}`, (req, res) => res.render('pages/contact', render(locale, 'contatti', { pathKey: 'contatti', currentPath: req.path })));
-  app.post(`${prefix}/${r.contatti}`, (req, res) => res.render('pages/contact', render(locale, 'contatti', { sent: true, pathKey: 'contatti', currentPath: req.path })));
 }
 
 registerLocaleRoutes('it');
 registerLocaleRoutes('en');
 
 app.get('/', (req, res) => res.redirect('/it'));
-app.use((req, res) => res.status(404).render('pages/404', render('it', '404', { pathKey: 'home', currentPath: req.path })));
+app.use((req, res) => {
+  const locale = req.path === '/en' || req.path.startsWith('/en/') ? 'en' : 'it';
+  res.status(404).render('pages/404', render(locale, '404', { pathKey: 'home', currentPath: req.path }));
+});
 
 app.listen(PORT, () => {
   console.log(`EURACCIAI site running on http://localhost:${PORT}`);

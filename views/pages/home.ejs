@@ -30,7 +30,7 @@
   <section class="cards-grid section-tight">
     <% divisions.forEach((division) => { %>
       <article class="division-card reveal">
-        <img src="<%= asset(division.image) %>" alt="<%= division.title %>">
+        <img src="<%= asset(division.image) %>" alt="<%= division.title %>" loading="lazy" decoding="async">
         <div class="card-body">
           <h3 class="accent-<%= division.color %>"><%= division.name %></h3>
           <strong><%= division.subtitle %></strong>

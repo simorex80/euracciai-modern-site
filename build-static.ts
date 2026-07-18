@@ -19,7 +19,7 @@ async function writeHtml(filePath: string, html: string) {
   await fs.writeFile(filePath, html, 'utf8');
 }
 
-async function renderPage(template: string, data: unknown) {
+async function renderPage(template: string, data: ejs.Data): Promise<string> {
   const templatePath = path.join(VIEWS_DIR, `${template}.ejs`);
   return ejs.renderFile(templatePath, data, { views: [VIEWS_DIR] });
 }
@@ -72,7 +72,8 @@ async function buildStatic() {
       await writeHtml(path.join(DIST_DIR, locale, productsSlug, product.id, 'index.html'), html);
     }
 
-    const notFound = await renderPage('pages/404', render(locale, '404', { pathKey: 'home', currentPath: `/${locale}/404`, staticMode: true }));
+    // Locale 404 files live directly in dist/<locale>/, unlike folder routes.
+    const notFound = await renderPage('pages/404', render(locale, '404', { pathKey: 'home', currentPath: `/${locale}`, staticMode: true }));
     await writeHtml(path.join(DIST_DIR, locale, '404.html'), notFound);
   }
 

@@ -6,7 +6,7 @@
     <p><%= division.subtitle %></p>
   </section>
   <section class="section split">
-    <img class="detail-img" src="<%= asset(division.image) %>" alt="<%= division.title %>">
+    <img class="detail-img" src="<%= asset(division.image) %>" alt="<%= division.title %>" decoding="async">
     <div>
       <% division.paragraphs.forEach((paragraph) => { %>
         <p><%= paragraph %></p>

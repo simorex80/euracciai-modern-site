@@ -19,11 +19,15 @@
   - Do not edit generated files directly; change source files and rebuild.
 
 ## Commands
-- Install: `npm install`
+- Required runtime: Node.js `>=24`; backward compatibility with older Node.js releases is not required.
+- Reproducible install: `npm ci`
 - TypeScript build: `npm run build`
+- Type check only: `npm run typecheck`
 - Dev server: `npm run dev`
 - Production server: `npm start`
 - Static export: `npm run build:static`
+- Static output validation: `npm run check:static`
+- Full QA: `npm run check`
 
 ## i18n Rules (Important)
 - All user-facing strings must come from i18n (`site-data.ts`) or data structures, not hardcoded in EJS.
@@ -59,13 +63,15 @@
 - GitHub Pages deployment is expected to run `npm ci` and `npm run build:static`.
 - Root `dist/index.html` handles redirect to locale.
 - Directory-path normalization script exists in shared `<head>` so URLs without trailing slash are normalized.
+- `scripts/check-static-build.js` verifies required locale pages, HTML language attributes, relative references, and referenced local files.
 
 ## Mobile Navigation
 - Desktop nav is hidden on small widths.
 - Mobile menu is implemented in header:
   - Toggle button (`.mobile-menu-toggle`)
   - Collapsible nav (`#mobile-nav`)
-  - JS behavior in `public/js/main.js`
+- JS behavior in `public/js/main.js`
+- The menu supports Escape, restores focus to the toggle, and keeps its localized accessible label synchronized.
 - Keep aria attributes and open/close labels localized.
 
 ## Styling Conventions
@@ -98,16 +104,24 @@
   - `"module": "NodeNext"`
   - `"moduleResolution": "NodeNext"`
 - `build-static.ts` and `server.ts` resolve project paths from `process.cwd()` to keep build/runtime stable.
+- TypeScript is strict and uses `noUncheckedIndexedAccess`; do not weaken compiler settings to bypass errors.
+- TypeScript targets `ES2024`, matching the Node.js 24 minimum.
+- The dynamic server uses a restrictive Helmet CSP. Shared templates must not introduce inline styles/scripts or third-party runtime assets without updating and reviewing the policy.
+- `public/js/normalize-path.js` is loaded early from `<head>`; `public/js/main.js` is deferred.
+- Contact routes are read-only. There is no contact form backend or placeholder POST endpoint.
+- Runtime dependencies are on Express 5, EJS 6, and Helmet 8.
+- GitHub Pages uses the current major releases of checkout, setup-node, upload-pages-artifact, and deploy-pages; verify official releases before changing them.
 
 ## QA Checklist Before Release
-- `npm run build` passes.
-- `npm run build:static` passes.
+- `npm run check` passes (strict types, build, static export, link/asset validation).
+- `npm audit` reports no known vulnerabilities.
 - Verify both locales in `dist/it/...` and `dist/en/...`.
 - Check mobile menu behavior on small viewport.
 - Check no unintended hardcoded UI strings in templates.
 - Check links/images/css/js are valid when hosted in subdirectory.
 - Search Italian static output for obvious English leftovers before final release.
 - Spot-check punctuation and spacing in visible copy.
+- Smoke-test the dynamic server and confirm Helmet CSP does not block local CSS or JS.
 
 ## Editing Guidance for Future Agents
 - Prefer editing `site-data.ts` for content/i18n changes.

@@ -1,9 +1,18 @@
 import { productDetails } from './product-details';
 
+type Locale = 'it' | 'en';
+type RouteKey = 'home' | 'azienda' | 'prodotti' | 'divisioni' | 'partners' | 'contatti';
+type PathParams = { id?: string };
+type ProductDetail = {
+  paragraphs?: string[];
+  images?: string[];
+  files?: Array<{ href: string; label: string }>;
+};
+
 const routeMap = {
   it: { home: '', azienda: 'azienda', prodotti: 'prodotti', divisioni: 'divisioni', partners: 'partners', contatti: 'contatti' },
   en: { home: '', azienda: 'company', prodotti: 'products', divisioni: 'divisions', partners: 'partners', contatti: 'contact' }
-};
+} as const satisfies Record<Locale, Record<RouteKey, string>>;
 
 const i18n = {
   it: {
@@ -457,9 +466,9 @@ const localized = {
   }
 };
 
-function buildPathFor(locale) {
-  return (key, params: any = {}) => {
-    const map = routeMap[locale] || routeMap.it;
+function buildPathFor(locale: Locale) {
+  return (key: RouteKey, params: PathParams = {}) => {
+    const map = routeMap[locale];
     const slug = map[key];
     if (slug === undefined) return `/${locale}`;
     let url = slug ? `/${locale}/${slug}` : `/${locale}`;
@@ -469,13 +478,13 @@ function buildPathFor(locale) {
   };
 }
 
-function getProducts(locale = 'it') {
+function getProducts(locale: Locale = 'it') {
   const lang = locale === 'en' ? 'en' : 'it';
   return localized.divisions[lang].flatMap((division) =>
     division.products.map((item, index) => {
       const productItem = item as any;
       const id = `${division.id}-${index + 1}`;
-      const details = productDetails[lang]?.[id] || {};
+      const details = (productDetails as Record<Locale, Record<string, ProductDetail>>)[lang][id] ?? {};
       return {
         id,
         divisionId: division.id,
@@ -494,16 +503,16 @@ function getProducts(locale = 'it') {
   );
 }
 
-function findProduct(locale = 'it', id: string) {
+function findProduct(locale: Locale = 'it', id: string) {
   return getProducts(locale).find((product) => product.id === id);
 }
 
-function routeToStaticFilePath(routePath) {
+function routeToStaticFilePath(routePath: string) {
   if (!routePath || routePath === '/') return '/index.html';
   return `${routePath.replace(/\/+$/, '')}/index.html`;
 }
 
-function makeRelative(fromPath, toPath) {
+function makeRelative(fromPath: string, toPath: string) {
   const cleanFrom = (fromPath || '/').replace(/\/+$/, '');
   const fromParts = cleanFrom.split('/').filter(Boolean);
   const fromDirParts = fromParts;
@@ -518,7 +527,7 @@ function makeRelative(fromPath, toPath) {
   return rel || '.';
 }
 
-function render(locale = 'it', page: string, data: any = {}) {
+function render(locale: Locale = 'it', page: string, data: Record<string, any> = {}): Record<string, any> {
   const lang = locale === 'en' ? 'en' : 'it';
   const pathFor = buildPathFor(lang);
   const staticMode = Boolean(data.staticMode);
@@ -550,8 +559,8 @@ function render(locale = 'it', page: string, data: any = {}) {
     partners: localized.partners[lang],
     page,
     pathFor,
-    url: (target) => makeRelative(currentPath, staticMode ? routeToStaticFilePath(target) : target),
-    asset: (target) => makeRelative(currentPath, target),
+    url: (target: string) => makeRelative(currentPath, staticMode ? routeToStaticFilePath(target) : target),
+    asset: (target: string) => makeRelative(currentPath, target),
     switchPath: buildPathFor(switchLocale)(pathKey, pathParams),
     localePaths,
     ...data,

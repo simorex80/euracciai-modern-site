@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2024",
+    "lib": ["ES2024"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "build",
     "rootDir": ".",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "strict": false,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
   "include": [
