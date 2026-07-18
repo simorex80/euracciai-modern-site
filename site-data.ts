@@ -87,16 +87,11 @@ const i18n = {
 
 const site = {
   company: 'EURACCIAI S.r.l.',
-  payoff: 'Since 1958',
+  foundedYear: 1958,
   phone: '+39 02 48704428',
   phoneExtended: '+39 02 48704428',
   fax: '+39 02 48 70 8204',
   email: 'info@euracciai.it',
-  address: 'Via Civitali 79 - 20148 Milano (Italia)',
-  chamber: 'C.C.I.A.A. Milano 514303',
-  capital: 'Capitale Sociale € 46.800',
-  registry: 'Trib. Milano Reg. Soc. 102364, Vol. 2742, Fasc. 23',
-  vat: 'Codice Fiscale/Partita Iva: 00817960156',
   directions: {
     it: {
       metroTitle: 'In metropolitana',
@@ -112,6 +107,25 @@ const site = {
     }
   }
 };
+
+const localizedSite = {
+  it: {
+    payoff: 'Dal 1958',
+    address: 'Via Civitali 79 - 20148 Milano (Italia)',
+    chamber: 'C.C.I.A.A. Milano 514303',
+    capital: 'Capitale sociale € 46.800',
+    registry: 'Trib. Milano Reg. Soc. 102364, Vol. 2742, Fasc. 23',
+    vat: 'Codice fiscale/Partita IVA: 00817960156'
+  },
+  en: {
+    payoff: 'Since 1958',
+    address: 'Via Civitali 79 - 20148 Milan (Italy)',
+    chamber: 'Milan Chamber of Commerce no. 514303',
+    capital: 'Share capital €46,800',
+    registry: 'Milan Companies Register no. 102364, Vol. 2742, File 23',
+    vat: 'Tax code/VAT number: 00817960156'
+  }
+} as const satisfies Record<Locale, Record<string, string>>;
 
 const localized = {
   company: {
@@ -136,7 +150,7 @@ const localized = {
         id: 'mdu', name: 'MDU', title: 'Divisione MDU', subtitle: 'Metallo duro - utensili - elettrodi - ugelli', color: 'blue', email: 'mdu@euracciai.it', image: '/img/division-mdu.png',
         description: 'EURACCIAI opera nel campo degli utensili da taglio e parti di usura/componenti in carburo di tungsteno da più di cinquanta anni.',
         paragraphs: [
-          "Forniamo ad aziende in Italia, in Europa e nel mondo materiali e utensili per i processi di produzione più impegnativi per la asportazione di truciolo, lo stampaggio, la scordonatura di tubi, la marcatura di tubi e di componenti meccanici, la saldatura a resistenza, la sabbiatura con materiali abrasivi, e per le applicazioni che richiedono resistenza all'usura e alle sollecitazioni meccaniche, bassi attriti e elevate durezze o elevata conduttività.",
+          "Forniamo ad aziende in Italia, in Europa e nel mondo materiali e utensili per i processi di produzione più impegnativi: l'asportazione di truciolo, lo stampaggio, la scordonatura e la marcatura di tubi e componenti meccanici, la saldatura a resistenza e la sabbiatura con materiali abrasivi. Offriamo inoltre soluzioni per applicazioni che richiedono resistenza all'usura e alle sollecitazioni meccaniche, bassi attriti, elevate durezze o elevata conduttività.",
           "La nostra esperienza e la nostra approfondita conoscenza tecnica ci permettono di fornire l'utensile, il componente o il materiale più adatto a raggiungere gli obiettivi in termini di qualità, costo e produttività.",
           'Euracciai dispone inoltre di materiali a magazzino e di soluzioni su disegno per forniture rapide e progetti personalizzati, con attenzione a continuità produttiva e tracciabilità.'
         ],
@@ -170,7 +184,7 @@ const localized = {
                             description: "Ugelli standard e speciali in metallo duro, carburo di boro e carburo di silicio, anche con corpi in acciaio zincato o alluminio."
                   },
                   {
-                            title: "CCNB (Rame/Cobalto/Nickel/Berillio)",
+                            title: "CCNB (Rame/Cobalto/Nichel/Berillio)",
                             description: "Lega con buone caratteristiche di conducibilità termica ed elettrica, durezza e resistenza alle temperature elevate."
                   },
                   {
@@ -227,12 +241,12 @@ const localized = {
         id: 'macsi', name: 'MACSI', title: 'Divisione MACSI', subtitle: 'Materiali e componenti speciali per impianti', color: 'green', email: 'macsi@euracciai.it', image: '/img/division-macsi.png',
         description: 'La divisione è specializzata in materiali avanzati per applicazioni industriali, come ceramiche tecniche, leghe resistenti alla corrosione e alle alte temperature, materiali antiusura e componenti speciali per impianti.',
         paragraphs: [
-          'Le competenze tecniche relative alla conoscenza delle applicazioni, dei materiali e dei componenti, rendono EURACCIAI un ottimo partner per sviluppare insieme ai nostri clienti le soluzioni più appropriate.',
+          'Le competenze tecniche relative alle applicazioni, ai materiali e ai componenti rendono EURACCIAI un partner affidabile per sviluppare insieme ai clienti le soluzioni più appropriate.',
           'La divisione supporta la scelta del materiale e del componente più idoneo per durata, affidabilità, manutenzione e costi complessivi di esercizio.'
         ],
         products: [
                   {
-                            title: "Materiali ceramici tecnici Coorstek",
+                            title: "Materiali ceramici tecnici CoorsTek",
                             description: "Componenti in materiali ceramici tecnici per applicazioni industriali avanzate, prodotti con tecnologie diverse e materiali specifici."
                   },
                   {
@@ -245,11 +259,11 @@ const localized = {
                   },
                   {
                             title: "ULBRICH - Nastri, fili piani e fili sagomati",
-                            description: "Nastri extra sottili, fili piani e fili sagomati di precisione in inox, leghe di nickel, titanio, cobalto e niobio."
+                            description: "Nastri extra sottili, fili piani e fili sagomati di precisione in acciaio inossidabile e leghe di nichel, titanio, cobalto e niobio."
                   },
                   {
                             title: "HARALD PIHL - Leghe speciali",
-                            description: "Leghe di nickel, titanio, rame e altre leghe disponibili in tubi, tondi, piatti, lamiere, filo e nastri."
+                            description: "Leghe di nichel, titanio, rame e altri metalli disponibili in tubi, tondi, piatti, lamiere, fili e nastri."
                   },
                   {
                             title: "Lamiere ricaricate antiusura",
@@ -278,7 +292,7 @@ const localized = {
                             description: "Macchine di flow forming per pulegge, organi di trasmissione, frizioni, dischi, cerchi, ruote e bombole per gas."
                   },
                   {
-                            title: "Spazzole Tecniche - LESSMANN",
+                            title: "Spazzole tecniche - LESSMANN",
                             description: "Spazzole tecniche di alta qualità per sbavatura, finitura, ripresa saldatura, cut back e applicazioni industriali speciali."
                   }
         ]
@@ -484,7 +498,9 @@ function getProducts(locale: Locale = 'it') {
     division.products.map((item, index) => {
       const productItem = item as any;
       const id = `${division.id}-${index + 1}`;
-      const details = (productDetails as Record<Locale, Record<string, ProductDetail>>)[lang][id] ?? {};
+      const allDetails = productDetails as Record<Locale, Record<string, ProductDetail>>;
+      const details = allDetails[lang][id] ?? {};
+      const sharedAssets = allDetails.it[id] ?? {};
       return {
         id,
         divisionId: division.id,
@@ -496,8 +512,8 @@ function getProducts(locale: Locale = 'it') {
         description: typeof item === 'string' ? '' : productItem.description,
         url: typeof item === 'string' ? undefined : productItem.url,
         paragraphs: details.paragraphs || [],
-        images: details.images || [],
-        files: details.files || []
+        images: details.images || sharedAssets.images || [],
+        files: details.files || sharedAssets.files || []
       };
     })
   );
@@ -551,7 +567,7 @@ function render(locale: Locale = 'it', page: string, data: Record<string, any> =
   return {
     locale: lang,
     t: i18n[lang],
-    site: { ...site, directions: site.directions[lang] },
+    site: { ...site, ...localizedSite[lang], directions: site.directions[lang] },
     company: localized.company[lang],
     divisions: selectedDivisions,
     products: selectedProducts,

@@ -13,8 +13,8 @@
         <a class="btn btn-ghost" href="<%= url(pathFor('azienda')) %>"><%= t.home.ctaCompany %></a>
       </div>
       <div class="hero-badges">
-        <div><strong>1958</strong><small><%= t.home.startActivity %></small></div>
-        <div><strong>3</strong><small><%= t.home.divisionsCount %></small></div>
+        <div><strong><%= site.foundedYear %></strong><small><%= t.home.startActivity %></small></div>
+        <div><strong><%= divisions.length %></strong><small><%= t.home.divisionsCount %></small></div>
       </div>
     </div>
   </section>

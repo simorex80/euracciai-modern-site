@@ -13,7 +13,7 @@
       <p><strong><%= t.common.office %></strong><br><%= site.address %></p>
       <hr>
       <% divisions.forEach((division) => { %>
-        <p><strong><%= t.common.division.toUpperCase() %> <%= division.name === 'DIVMAC' ? 'DIVMAC' : division.name %></strong><br><%= division.subtitle %><br><a href="mailto:<%= division.email %>"><%= division.email %></a></p>
+        <p><strong><%= t.common.division.toUpperCase() %> <%= division.name %></strong><br><%= division.subtitle %><br><a href="mailto:<%= division.email %>"><%= division.email %></a></p>
       <% }) %>
     </div>
     <div class="contact-card">
