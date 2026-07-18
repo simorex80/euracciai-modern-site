@@ -1,18 +1,18 @@
 <%- include('../partials/head') %><%- include('../partials/header') %>
 <main class="page">
-  <section class="page-hero">
+  <section class="page-hero page-hero--division page-hero--<%= product.divisionId %> division-theme division-theme-<%= product.divisionId %>">
     <span class="eyebrow"><%= t.pages.productEyebrow %></span>
     <h1><%= product.title %></h1>
     <p><%= product.divisionName %> - <%= product.divisionSubtitle %></p>
   </section>
-  <section class="section split">
+  <section class="section split product-detail-layout division-theme division-theme-<%= product.divisionId %>">
     <div>
       <span class="eyebrow"><%= t.pages.relatedDivision %></span>
       <h2 class="accent-<%= product.divisionColor %>"><%= product.divisionTitle %></h2>
       <p><%= product.divisionSubtitle %></p>
       <a class="btn btn-primary" href="<%= url(pathFor('divisioni', { id: product.divisionId })) %>"><%= t.common.detail %></a>
     </div>
-    <article class="partner-card">
+    <article class="partner-card product-sheet">
       <h3><%= product.title %></h3>
       <% if (product.description && (!product.paragraphs || !product.paragraphs.length)) { %>
         <p><%= product.description %></p>

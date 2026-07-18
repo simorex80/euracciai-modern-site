@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">EURACCIAI</title>
+  <desc id="desc">Marchio EURACCIAI con tre elementi metallici bianchi su fondo blu</desc>
+  <defs>
+    <linearGradient id="blue" x1="18" y1="10" x2="232" y2="246" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#63c6f4"/>
+      <stop offset="0.45" stop-color="#168fd0"/>
+      <stop offset="1" stop-color="#07508f"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="40" y1="0" x2="218" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="0.52" stop-color="#f5f8fb"/>
+      <stop offset="1" stop-color="#dce6ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="6" fill="url(#blue)"/>
+  <path d="M47 37h174l-26 39H21z" fill="url(#steel)"/>
+  <path d="M69 108h135l-25 39H43z" fill="url(#steel)"/>
+  <path d="M42 179h171l-27 40H16z" fill="url(#steel)"/>
+  <path d="M47 37h174M69 108h135M42 179h171" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="2"/>
+</svg>

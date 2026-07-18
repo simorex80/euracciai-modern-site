@@ -35,7 +35,7 @@ const i18n = {
     },
     common: {
       contacts: 'Contatti', phone: 'Telefono', fax: 'Fax', email: 'Email', office: 'Sede', division: 'Divisione',
-      directions: 'Come raggiungerci', menu: 'Menu', companyData: 'Dati societari', detail: 'Approfondisci →', backHome: 'Torna alla homepage',
+      directions: 'Come raggiungerci', menu: 'Menu', companyData: 'Dati societari', detail: 'Approfondisci →', backHome: 'Torna alla homepage', productLabel: 'Prodotto',
       homeAria: 'Homepage', mainNavAria: 'Navigazione principale', langSelectorAria: 'Selettore lingua',
       mobileMenuLabel: 'Menu', openMenuLabel: 'Apri menu', closeMenuLabel: 'Chiudi menu'
     },
@@ -69,7 +69,7 @@ const i18n = {
     },
     common: {
       contacts: 'Contact', phone: 'Phone', fax: 'Fax', email: 'Email', office: 'Office', division: 'Division',
-      directions: 'How to reach us', menu: 'Menu', companyData: 'Company details', detail: 'Learn more →', backHome: 'Back to homepage',
+      directions: 'How to reach us', menu: 'Menu', companyData: 'Company details', detail: 'Learn more →', backHome: 'Back to homepage', productLabel: 'Product',
       homeAria: 'Home', mainNavAria: 'Main navigation', langSelectorAria: 'Language selector',
       mobileMenuLabel: 'Menu', openMenuLabel: 'Open menu', closeMenuLabel: 'Close menu'
     },

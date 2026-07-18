@@ -1,12 +1,12 @@
 <%- include('../partials/head') %><%- include('../partials/header') %>
 <main class="page">
-  <section class="page-hero">
+  <section class="page-hero page-hero--products">
     <span class="eyebrow"><%= t.pages.productsEyebrow %></span>
     <h1><%= t.pages.productsTitle %></h1>
     <p><%= t.pages.productsSubtitle %></p>
   </section>
   <% divisions.forEach((division) => { %>
-    <section class="section value-section">
+    <section class="section value-section division-section division-theme division-theme-<%= division.id %>">
       <div class="section-title-row">
         <div>
           <span class="eyebrow"><%= division.name %></span>
@@ -15,13 +15,19 @@
         <a href="<%= url(pathFor('divisioni', { id: division.id })) %>"><%= t.common.detail %></a>
       </div>
       <div class="value-grid compact-list partners-grid">
-        <% division.products.forEach((item, index) => { %>
-          <article class="partner-card">
-            <h3><%= typeof item === 'string' ? item : item.title %></h3>
-            <% if (typeof item !== 'string' && item.description) { %>
-              <p><%= item.description %></p>
-            <% } %>
-            <p><a href="<%= url(pathFor('prodotti', { id: productId(division.id, index) })) %>"><%= t.common.detail %></a></p>
+        <% division.products.forEach((item, index) => { const id = productId(division.id, index); const catalogProduct = products.find((entry) => entry.id === id); const preview = catalogProduct && catalogProduct.images && catalogProduct.images[0]; %>
+          <article class="partner-card product-card division-theme division-theme-<%= division.id %>">
+            <div class="product-card-visual <%= preview ? 'has-image' : '' %>">
+              <% if (preview) { %><img src="<%= asset(preview) %>" alt="<%= typeof item === 'string' ? item : item.title %>" loading="lazy" decoding="async"><% } else { %><span class="product-card-code" aria-hidden="true"><%= division.name %></span><% } %>
+              <span class="product-card-index"><%= t.common.productLabel %> <%= String(index + 1).padStart(2, '0') %></span>
+            </div>
+            <div class="product-card-content">
+              <h3><%= typeof item === 'string' ? item : item.title %></h3>
+              <% if (typeof item !== 'string' && item.description) { %>
+                <p><%= item.description %></p>
+              <% } %>
+              <p class="product-card-link"><a href="<%= url(pathFor('prodotti', { id })) %>"><%= t.common.detail %></a></p>
+            </div>
           </article>
         <% }) %>
       </div>

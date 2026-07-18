@@ -1,13 +1,13 @@
 <%- include('../partials/head') %><%- include('../partials/header') %>
 <main class="page">
-  <section class="page-hero">
+  <section class="page-hero page-hero--divisions">
     <span class="eyebrow"><%= t.pages.divisionsEyebrow %></span>
     <h1><%= t.pages.divisionsTitle %></h1>
     <p><%= t.pages.divisionsSubtitle %></p>
   </section>
   <section class="cards-grid section">
     <% divisions.forEach((division) => { %>
-      <article class="division-card">
+      <article class="division-card division-theme division-theme-<%= division.id %>">
         <img src="<%= asset(division.image) %>" alt="<%= division.title %>" loading="lazy" decoding="async">
         <div class="card-body">
           <h3 class="accent-<%= division.color %>"><%= division.name %></h3>
